@@ -232,7 +232,7 @@ app.post('/webview',upload.single('file'),function(req,res){
             db.collection('webview').add({
               name: name,
               email: email,
-              image: img_url
+              image: "https://d3nfwcxd527z59.cloudfront.net/content/uploads/2019/09/10152557/wayne-rooney-fenerbahce.jpg"
               }).then(success => {   
                 console.log("DATA SAVED")
                 thankyouReply(sender, name, img_url);    
