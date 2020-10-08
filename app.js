@@ -446,7 +446,7 @@ const showImages = (sender_psid) => {
               {
                 "type": "web_url",
                 "title": "enter",
-                "url":"https://fbstarter.herokuapp.com/showimages/"+sender_psid,
+                "url":"https://znetapp.herokuapp.com/showimages/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -482,7 +482,7 @@ function webviewTest(sender_psid){
               {
                 "type": "web_url",
                 "title": "webview",
-                "url":APP_URL+"webview/"+sender_psid,
+                "url":"https://znetapp.herokuapp.com/webview/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -625,7 +625,7 @@ function testDelete(sender_psid){
               {
                 "type": "web_url",
                 "title": "enter",
-                "url":"https://fbstarter.herokuapp.com/test/",
+                "url":"https://znetapp.herokuapp.com/test/",
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
