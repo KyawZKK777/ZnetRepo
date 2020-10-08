@@ -721,17 +721,10 @@ const showDoctor = (sender_psid) => {
                   "type": "postback",
                   "title": "Explore",
                   "payload": "Doctor:James Smith",
-                  "text": "First Time Visit or Follow Up",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"First Time",
-              "payload":"visit:first time",              
-            },
-    ],
-  },
- ],
-},{ "title": "Check Our Coffee Menu",
+                },               
+              ],
+          },{
+            "title": "Check Our Coffee Menu",
             "subtitle": "Discover our various smell and taste of coffee what you desire.",
             "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
             "buttons": [
