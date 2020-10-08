@@ -719,33 +719,85 @@ const showDoctor = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "James Smith",
+                  "title": "Explore",
                   "payload": "Doctor:James Smith",
-                },{
-                  "type": "postback",
-                  "title": "James Smith",
-                  "payload": "Doctor:James Smith",
-                }                      
-              ]
-          },{
-            "title": "Kenneth Martinez",
-            "subtitle": "General Surgeon",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
+                },
+
+          ],
+        }
+        ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
+const firstOrFollowUp = (sender_psid) => {
+
+  let response = {
+    "text": "First Time Visit or Follow Up",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"First Time",
+              "payload":"visit:first time",              
+            },{
+              "content_type":"text",
+              "title":"Follow Up",
+              "payload":"visit:follow up",             
+            }
+    ]
+  };
+  callSend(sender_psid, response);
+
+}
+
+const showDoctor = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements":
+           [{
+            "title": "Check Our Coffee Menu",
+            "subtitle": "Discover our various smell and taste of coffee what you desire.",
+            "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Kenneth Martinez",
+                  "title": "View Menu ☕☕☕",
                   "payload": "Doctor:Kenneth Martinez",
                 },               
               ],
-          },{
-            "title": "Barbara Young",
-            "subtitle": "General Surgeon",
-            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
+          
+          }
+
+          ]
+        }
+      }
+    }
+callSend(sender_psid, response);
+}
+
+
+  const showDoctor = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+           
+            "title": "Our Story",
+            "subtitle": "Read more about our ZNet coffee & book shop and our exceptional.",
+            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Barbara Young",
+                  "title": "Learn more...",
                   "payload": "Doctor:Barbara Young",
                 },               
               ],
@@ -760,6 +812,7 @@ const showDoctor = (sender_psid) => {
   callSend(sender_psid, response);
 
 }
+
 
 const firstOrFollowUp = (sender_psid) => {
 
