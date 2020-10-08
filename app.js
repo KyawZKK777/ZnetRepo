@@ -734,27 +734,10 @@ const showDoctor = (sender_psid) => {
   callSend(sender_psid, response);
 
 }
-const firstOrFollowUp = (sender_psid) => {
 
-  let response = {
-    "text": "First Time Visit or Follow Up",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"First Time",
-              "payload":"visit:first time",              
-            },{
-              "content_type":"text",
-              "title":"Follow Up",
-              "payload":"visit:follow up",             
-            }
-    ]
-  };
-  callSend(sender_psid, response);
 
-}
 
-const showDoctor = (sender_psid) => {
+const showDoc = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
@@ -783,7 +766,7 @@ callSend(sender_psid, response);
 }
 
 
-  const showDoctor = (sender_psid) => {
+  const showctor = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
@@ -810,7 +793,6 @@ callSend(sender_psid, response);
 
   
   callSend(sender_psid, response);
-
 }
 
 
