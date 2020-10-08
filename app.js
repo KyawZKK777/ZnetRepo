@@ -721,12 +721,7 @@ const showDoctor = (sender_psid) => {
                   "type": "postback",
                   "title": "Explore",
                   "payload": "Doctor:James Smith",
-                },               
-              ],
-              const firstOrFollowUp = (sender_psid) => {
-
-  let response = {
-    "text": "First Time Visit or Follow Up",
+                  "text": "First Time Visit or Follow Up",
     "quick_replies":[
             {
               "content_type":"text",
@@ -734,12 +729,15 @@ const showDoctor = (sender_psid) => {
               "payload":"visit:first time",              
             },
     ],
-  };
-  callSend(sender_psid, response);
+  },
+  
+                               
+              ],
 
-}
-          },{
-            "title": "Check Our Coffee Menu",
+  
+
+         }, 
+         {"title": "Check Our Coffee Menu",
             "subtitle": "Discover our various smell and taste of coffee what you desire.",
             "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
             "buttons": [
