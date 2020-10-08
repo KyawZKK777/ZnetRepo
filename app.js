@@ -679,9 +679,9 @@ function webviewTest(sender_psid){
 start hospital
 **************/
 const hospitalAppointment = (sender_psid) => {
-   let response1 = {"text": "Welcome to ZNET Coffee and Book shop"};
+   let response1 = {"text": "Welcome to ABC Hospital"};
    let response2 = {
-    "text": "Perfect time for a cup of coffee don't you think? ☕",
+    "text": "Please select department",
     "quick_replies":[
             {
               "content_type":"text",
@@ -721,30 +721,24 @@ const showDoctor = (sender_psid) => {
                   "type": "postback",
                   "title": "Explore",
                   "payload": "Doctor:James Smith",
-                },
+                },               
+              ],
+              const firstOrFollowUp = (sender_psid) => {
 
-          ],
-        }
-        ]
-        }
-      }
-    }
-
-  
+  let response = {
+    "text": "First Time Visit or Follow Up",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"First Time",
+              "payload":"visit:first time",              
+            },
+    ],
+  };
   callSend(sender_psid, response);
 
 }
-
-
-
-const showDoc = (sender_psid) => {
-    let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements":
-           [{
+          },{
             "title": "Check Our Coffee Menu",
             "subtitle": "Discover our various smell and taste of coffee what you desire.",
             "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
@@ -755,32 +749,14 @@ const showDoc = (sender_psid) => {
                   "payload": "Doctor:Kenneth Martinez",
                 },               
               ],
-          
-          }
-
-          ]
-        }
-      }
-    }
-callSend(sender_psid, response);
-}
-
-
-  const showctor = (sender_psid) => {
-    let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-           
+          },{
             "title": "Our Story",
             "subtitle": "Read more about our ZNet coffee & book shop and our exceptional.",
-            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpg",                       
+            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Learn more...",
+                  "title": "Learn More...",
                   "payload": "Doctor:Barbara Young",
                 },               
               ],
@@ -793,8 +769,8 @@ callSend(sender_psid, response);
 
   
   callSend(sender_psid, response);
-}
 
+}
 
 const firstOrFollowUp = (sender_psid) => {
 
