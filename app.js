@@ -253,25 +253,25 @@ app.post('/webview',upload.single('file'),function(req,res){
 });
 
 //Set up Get Started Button. To run one time
-//eg https://fbstarter.herokuapp.com/setgsbutton
+//eg https://znetapp.herokuapp.com/setgsbutton
 app.get('/setgsbutton',function(req,res){
     setupGetStartedButton(res);    
 });
 
 //Set up Persistent Menu. To run one time
-//eg https://fbstarter.herokuapp.com/setpersistentmenu
+//eg https://znetapp.herokuapp.com/setpersistentmenu
 app.get('/setpersistentmenu',function(req,res){
     setupPersistentMenu(res);    
 });
 
 //Remove Get Started and Persistent Menu. To run one time
-//eg https://fbstarter.herokuapp.com/clear
+//eg https://znetapp.herokuapp.com/clear
 app.get('/clear',function(req,res){    
     removePersistentMenu(res);
 });
 
 //whitelist domains
-//eg https://fbstarter.herokuapp.com/whitelists
+//eg https://znetapp.herokuapp.com/whitelists
 app.get('/whitelists',function(req,res){    
     whitelistDomains(res);
 });
