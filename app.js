@@ -55,7 +55,11 @@ var firebaseConfig = {
     "project_id": process.env.FIREBASE_PROJECT_ID,    
     }),
     databaseURL: process.env.FIREBASE_DB_URL,   
+<<<<<<< HEAD
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET
+=======
+    storageBucket: "gs://znet-30e62.appspot.com"
+>>>>>>> ffceebd... code changed
   };
 
 
