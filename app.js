@@ -679,9 +679,9 @@ function webviewTest(sender_psid){
 start hospital
 **************/
 const hospitalAppointment = (sender_psid) => {
-   let response1 = {"text": "Welcome to ABC Hospital"};
+   let response1 = {"text": "Welcome to ZNET Coffee and Book shop"};
    let response2 = {
-    "text": "Please select department",
+    "text": "Perfect time for a cup of coffee don't you think? ☕",
     "quick_replies":[
             {
               "content_type":"text",
@@ -713,16 +713,20 @@ const showDoctor = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "James Smith",
-            "subtitle": "General Surgeon",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
+            "title": "Books",
+            "subtitle": "Explore our collection of various category of books of your interest",
+            "image_url":"https://media.wired.com/photos/5be4cd03db23f3775e466767/master/w_2560%2Cc_limit/books-521812297.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
                   "title": "James Smith",
                   "payload": "Doctor:James Smith",
-                },               
-              ],
+                },{
+                  "type": "postback",
+                  "title": "James Smith",
+                  "payload": "Doctor:James Smith",
+                }                      
+              ]
           },{
             "title": "Kenneth Martinez",
             "subtitle": "General Surgeon",
