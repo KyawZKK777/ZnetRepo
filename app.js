@@ -730,14 +730,8 @@ const showDoctor = (sender_psid) => {
             },
     ],
   },
-  
-                               
-              ],
-
-  
-
-         }, 
-         {"title": "Check Our Coffee Menu",
+ ],
+},{ "title": "Check Our Coffee Menu",
             "subtitle": "Discover our various smell and taste of coffee what you desire.",
             "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
             "buttons": [
