@@ -408,14 +408,7 @@ function handleQuickReply(sender_psid, received_message) {
 
   received_message = received_message.toLowerCase();
 
-  if(received_message.startsWith("visit:")){
-    let visit = received_message.slice(6);
-    
-    userInputs[user_id].visit = visit;
-    
-    current_question = 'q1';
-    botQuestions(current_question, sender_psid);
-  }else if(received_message.startsWith("ddd:")){
+  if(received_message.startsWith("ddd:")){
     let dept = received_message.slice(4);
     userInputs[user_id].ddd = ddd;
     current_question = 'q1';
