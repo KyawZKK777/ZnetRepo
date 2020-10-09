@@ -206,7 +206,7 @@ app.post('/admin/updateappointment', function(req,res){
     department:req.body.department,
     visit:req.body.visit,
     box:req.body.box,
-    ddd:req.body.ddd,
+    drink:req.body.drink,
     date:req.body.date,
     time:req.body.time,
     message:req.body.message,
@@ -408,9 +408,9 @@ function handleQuickReply(sender_psid, received_message) {
 
   received_message = received_message.toLowerCase();
 
-  if(received_message.startsWith("ddd:")){
-    let dept = received_message.slice(4);
-    userInputs[user_id].ddd = ddd;
+  if(received_message.startsWith("drink:")){
+    let dept = received_message.slice(6);
+    userInputs[user_id].drink = drink;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
   }else if(received_message.startsWith("department:")){
@@ -860,11 +860,11 @@ const drink = (sender_psid) => {
             {
               "content_type":"text",
               "title":"First drink",
-              "payload":"ddd:first drink",              
+              "payload":"drink:first drink",              
             },{
               "content_type":"text",
               "title":"Follow drink",
-              "payload":"ddd:follow drink",             
+              "payload":"drink:follow drink",             
             }
     ]
   };
@@ -904,7 +904,7 @@ const confirmAppointment = (sender_psid) => {
   summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
   summery += "box:" + userInputs[user_id].box+ "\u000A";
-  summery += "ddd:" + userInputs[user_id].ddd + "\u000A";
+  summery += "drink:" + userInputs[user_id].drink + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
