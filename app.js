@@ -418,35 +418,18 @@ function handleQuickReply(sender_psid, received_message) {
     let dept = received_message.slice(11);
     userInputs[user_id].department = dept;
     showDoctor(sender_psid);
-  }else{
 
-      switch(received_message) {                
-        case "on":
-            showQuickReplyOn(sender_psid);
-          break;
-        case "off":
-            showQuickReplyOff(sender_psid);
-          break; 
-        case "confirm-appointment":
-              saveAppointment(userInputs[user_id], sender_psid);
-          break;              
-        default:
-            defaultReply(sender_psid);
-    } 
 
-  }
-  if(received_message.startsWith("dd:")){
+  }else if(received_message.startsWith("dd:")){
     let dd = received_message.slice(3);
     
     userInputs[user_id].dd = dd;
     
-    current_question = 'q1';
-    botQuestions(current_question, sender_psid);
-  }else if(received_message.startsWith("department:")){
-    let dept = received_message.slice(11);
-    userInputs[user_id].department = dept;
-    showDoctor(sender_psid);
-  }else{
+    current_question = 'q2';
+    botQuestions(current_question, sender_psid);}
+
+
+  else{
 
       switch(received_message) {                
         case "on":
@@ -463,11 +446,10 @@ function handleQuickReply(sender_psid, received_message) {
     } 
 
   }
+
+    } 
+
   
-  
-  
- 
-}
 
 /**********************************************
 Function to Handle when user send text message
