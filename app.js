@@ -589,7 +589,7 @@ const handlePostback = (sender_psid, received_postback) => {
     console.log('SELECTED DOCTOR IS: ', doctor_name);
     userInputs[user_id].doctor = doctor_name;
     console.log('TEST', userInputs);
-    firstOrFollowUp(sender_psid);
+    bookselect(sender_psid);
 
   }else if(payload.startsWith("Coffee:")){
     let Coffee_name = payload.slice(7);
@@ -770,19 +770,29 @@ const showDoctor = (sender_psid) => {
 
 }
 
-const firstOrFollowUp = (sender_psid) => {
+const bookselect = (sender_psid) => {
 
   let response = {
-    "text": "First Time Visit or Follow Up",
+    "text": "Slect your favorite category of book below 👇",
     "quick_replies":[
             {
               "content_type":"text",
-              "title":"First Time",
-              "payload":"visit:first time",              
+              "title":"Fiiction",
+              "payload":"visit:Fiiction",              
             },{
               "content_type":"text",
-              "title":"Follow Up",
-              "payload":"visit:follow up",             
+              "title":"Non-fiction",
+              "payload":"visit:Non-fiction",             
+            }
+            {
+              "content_type":"text",
+              "title":"Politics",
+              "payload":"visit:Politics",             
+            }
+            {
+              "content_type":"text",
+              "title":"Nobel",
+              "payload":"visit:Nobel",             
             }
     ]
   };
