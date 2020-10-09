@@ -610,27 +610,6 @@ const handlePostback = (sender_psid, received_postback) => {
     } 
 
   }
-if(payload.startsWith("Coffeee:")){
-    let coffeee_name = payload.slice(8);
-    console.log('SELECTED COFFEE IS: ', coffeee_name);
-    userInputs[user_id].coffeee = coffeee_name;
-    console.log('TEST2', userInputs);
-    dirnkOrD(sender_psid);
-  }else{
-
-      switch(payload) {        
-      case "yes":
-          showButtonReplyYes(sender_psid);
-        break;
-      case "no":
-          showButtonReplyNo(sender_psid);
-        break;                      
-      default:
-          defaultReply(sender_psid);
-    } 
-
-  }
-
 
   
 }
@@ -768,7 +747,7 @@ const showDoctor = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Menu ☕☕☕",
-                  "payload": "Coffeee:Kenneth Martinez",
+                  "payload": "Doctor:Kenneth Martinez",
                 },               
               ],
           },{
@@ -812,24 +791,7 @@ const firstOrFollowUp = (sender_psid) => {
   };
   callSend(sender_psid, response);
 
-  const dirnkOrDUp = (sender_psid) => {
-
-  let response = {
-    "text": "drink or D",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"First Time",
-              "payload":"dd:first time",              
-            },{
-              "content_type":"text",
-              "title":"Follow Up",
-              "payload":"dd:follow up",             
-            }
-    ]
-  };
-  callSend(sender_psid, response);
-
+  
 }
 
 const botQuestions = (current_question, sender_psid) => {
