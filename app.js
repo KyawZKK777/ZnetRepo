@@ -589,7 +589,7 @@ const handlePostback = (sender_psid, received_postback) => {
     console.log('SELECTED Coffeee IS: ', Coffeee_name);
     userInputs[user_id].Coffeee = Coffeee_name;
     console.log('TEST2', userInputs);
-    firstOrFollowUp(sender_psid);}
+    drink(sender_psid);}
     else{
       switch(payload) {        
       case "yes":
