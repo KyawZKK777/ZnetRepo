@@ -202,10 +202,8 @@ app.post('/admin/updateappointment', function(req,res){
     email:req.body.email,
     gender:req.body.gender,
     doctor:req.body.doctor,
-    coffeee:req.body.coffeee,
     department:req.body.department,
     visit:req.body.visit,
-    dd:req.body.dd,
     date:req.body.date,
     time:req.body.time,
     message:req.body.message,
@@ -418,18 +416,7 @@ function handleQuickReply(sender_psid, received_message) {
     let dept = received_message.slice(11);
     userInputs[user_id].department = dept;
     showDoctor(sender_psid);
-
-
-  }else if(received_message.startsWith("dd:")){
-    let dd = received_message.slice(3);
-    
-    userInputs[user_id].dd = dd;
-    
-    current_question = 'q2';
-    botQuestions(current_question, sender_psid);}
-
-
-  else{
+  }else{
 
       switch(received_message) {                
         case "on":
@@ -446,10 +433,10 @@ function handleQuickReply(sender_psid, received_message) {
     } 
 
   }
-
-    } 
-
   
+  
+ 
+}
 
 /**********************************************
 Function to Handle when user send text message
@@ -611,12 +598,9 @@ const handlePostback = (sender_psid, received_postback) => {
 
   }
 
+
   
 }
-
-
-  
-
 
 
 const generateRandom = (length) => {
@@ -729,35 +713,35 @@ const showDoctor = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Books",
-            "subtitle": "Explore our collection of various category of books of your interest",
-            "image_url":"https://media.wired.com/photos/5be4cd03db23f3775e466767/master/w_2560%2Cc_limit/books-521812297.jpg",                       
+            "title": "James Smith",
+            "subtitle": "General Surgeon",
+            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Explore",
+                  "title": "James Smith",
                   "payload": "Doctor:James Smith",
                 },               
               ],
           },{
-            "title": "Check Our Coffee Menu",
-            "subtitle": "Discover our various smell and taste of coffee what you desire.",
-            "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
+            "title": "Kenneth Martinez",
+            "subtitle": "General Surgeon",
+            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Menu ☕☕☕",
+                  "title": "Kenneth Martinez",
                   "payload": "Doctor:Kenneth Martinez",
                 },               
               ],
           },{
-            "title": "Our Story",
-            "subtitle": "Read more about our ZNet coffee & book shop and our exceptional.",
-            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
+            "title": "Barbara Young",
+            "subtitle": "General Surgeon",
+            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Learn More...",
+                  "title": "Barbara Young",
                   "payload": "Doctor:Barbara Young",
                 },               
               ],
@@ -791,7 +775,6 @@ const firstOrFollowUp = (sender_psid) => {
   };
   callSend(sender_psid, response);
 
-  
 }
 
 const botQuestions = (current_question, sender_psid) => {
@@ -823,9 +806,7 @@ const confirmAppointment = (sender_psid) => {
   console.log('APPOINTMENT INFO', userInputs);
   let summery = "department:" + userInputs[user_id].department + "\u000A";
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
-  summery += "coffeee:" + userInputs[user_id].coffeee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
-  summery += "dd:" + userInputs[user_id].dd + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
@@ -1227,7 +1208,6 @@ const whitelistDomains = (res) => {
           res.send(body);
       } else {           
           res.send(body);
-  
-   }
+      }
   });
 } 
