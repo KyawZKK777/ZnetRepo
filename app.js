@@ -1283,6 +1283,7 @@ const whitelistDomains = (res) => {
           res.send(body);
       } else {           
           res.send(body);
-      }
+  
+   }
   });
 } 
