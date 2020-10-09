@@ -833,17 +833,17 @@ const bookselect = (sender_psid) => {
             },{
               "content_type":"text",
               "title":"Non-fiction",
-              "payload":"visit:Non-fiction",             
+              "payload":"fitt:Non-fiction",             
             },
             {
               "content_type":"text",
               "title":"Politics",
-              "payload":"visit:Politics",             
+              "payload":"fitt:Politics",             
             },
             {
               "content_type":"text",
               "title":"Nobel",
-              "payload":"visit:Nobel",             
+              "payload":"fitt:Nobel",             
             }
     ]
   };
