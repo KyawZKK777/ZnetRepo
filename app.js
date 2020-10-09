@@ -205,7 +205,7 @@ app.post('/admin/updateappointment', function(req,res){
     coffee:req.body.coffee,
     department:req.body.department,
     visit:req.body.visit,
-    fitt:req.body.fitt,
+    box:req.body.box,
     ddd:req.body.ddd,
     date:req.body.date,
     time:req.body.time,
@@ -417,9 +417,9 @@ function handleQuickReply(sender_psid, received_message) {
     let dept = received_message.slice(11);
     userInputs[user_id].department = dept;
     showDoctor(sender_psid);
-  }else if(received_message.startsWith("fitt:")){
-    let dept = received_message.slice(5);
-    userInputs[user_id].fitt = fitt;
+  }else if(received_message.startsWith("box:")){
+    let dept = received_message.slice(4);
+    userInputs[user_id].box = box;
     showFiction(sender_psid);
   }else{
 
@@ -829,21 +829,21 @@ const bookselect = (sender_psid) => {
             {
               "content_type":"text",
               "title":"Fiction",
-              "payload":"fitt:Fiction",              
+              "payload":"box:Fiction",              
             },{
               "content_type":"text",
               "title":"Non-fiction",
-              "payload":"fitt:Non-fiction",             
+              "payload":"box:Non-fiction",             
             },
             {
               "content_type":"text",
               "title":"Politics",
-              "payload":"fitt:Politics",             
+              "payload":"box:Politics",             
             },
             {
               "content_type":"text",
               "title":"Nobel",
-              "payload":"fitt:Nobel",             
+              "payload":"box:Nobel",             
             }
     ]
   };
@@ -903,7 +903,7 @@ const confirmAppointment = (sender_psid) => {
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
   summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
-  summery += "fitt:" + userInputs[user_id].fitt+ "\u000A";
+  summery += "box:" + userInputs[user_id].box+ "\u000A";
   summery += "ddd:" + userInputs[user_id].ddd + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
