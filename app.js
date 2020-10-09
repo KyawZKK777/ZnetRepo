@@ -202,8 +202,10 @@ app.post('/admin/updateappointment', function(req,res){
     email:req.body.email,
     gender:req.body.gender,
     doctor:req.body.doctor,
+    coffeee:req.body.coffeee,
     department:req.body.department,
     visit:req.body.visit,
+    dd:req.body.dd,
     date:req.body.date,
     time:req.body.time,
     message:req.body.message,
@@ -433,6 +435,35 @@ function handleQuickReply(sender_psid, received_message) {
     } 
 
   }
+  if(received_message.startsWith("dd:")){
+    let dd = received_message.slice(3);
+    
+    userInputs[user_id].dd = dd;
+    
+    current_question = 'q1';
+    botQuestions(current_question, sender_psid);
+  }else if(received_message.startsWith("department:")){
+    let dept = received_message.slice(11);
+    userInputs[user_id].department = dept;
+    showDoctor(sender_psid);
+  }else{
+
+      switch(received_message) {                
+        case "on":
+            showQuickReplyOn(sender_psid);
+          break;
+        case "off":
+            showQuickReplyOff(sender_psid);
+          break; 
+        case "confirm-appointment":
+              saveAppointment(userInputs[user_id], sender_psid);
+          break;              
+        default:
+            defaultReply(sender_psid);
+    } 
+
+  }
+  
   
   
  
@@ -597,10 +628,10 @@ const handlePostback = (sender_psid, received_postback) => {
     } 
 
   }
-if(payload.startsWith("Coffee:")){
-    let coffee_name = payload.slice(7);
-    console.log('SELECTED COFFEE IS: ', coffee_name);
-    userInputs[user_id].doctor = coffee_name;
+if(payload.startsWith("Coffeee:")){
+    let coffeee_name = payload.slice(8);
+    console.log('SELECTED COFFEE IS: ', coffeee_name);
+    userInputs[user_id].coffeee = coffeee_name;
     console.log('TEST', userInputs);
     dirnkOrD(sender_psid);
   }else{
@@ -755,7 +786,7 @@ const showDoctor = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Menu ☕☕☕",
-                  "payload": "Coffee:Kenneth Martinez",
+                  "payload": "Coffeee:Kenneth Martinez",
                 },               
               ],
           },{
@@ -848,7 +879,9 @@ const confirmAppointment = (sender_psid) => {
   console.log('APPOINTMENT INFO', userInputs);
   let summery = "department:" + userInputs[user_id].department + "\u000A";
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
+  summery += "coffeee:" + userInputs[user_id].coffeee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
+  summery += "dd:" + userInputs[user_id].dd + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
