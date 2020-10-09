@@ -205,6 +205,7 @@ app.post('/admin/updateappointment', function(req,res){
     coffee:req.body.coffee,
     department:req.body.department,
     visit:req.body.visit,
+    fit:req.body.fit,
     ddd:req.body.ddd,
     date:req.body.date,
     time:req.body.time,
@@ -423,6 +424,10 @@ function handleQuickReply(sender_psid, received_message) {
     let dept = received_message.slice(11);
     userInputs[user_id].department = dept;
     showDoctor(sender_psid);
+  }else if(received_message.startsWith("fit:")){
+    let dept = received_message.slice(4);
+    userInputs[user_id].fit = fit;
+    showFiction(sender_psid);
   }else{
 
       switch(received_message) {                
@@ -770,6 +775,59 @@ const showDoctor = (sender_psid) => {
 
 }
 
+
+const showFiction = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Life of Pi",
+            "subtitle": "Author - Yann Martel""Price - 15000 MMK",
+            "image_url":"https://pictures.abebooks.com/isbn/9780156030205-us.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Doctor:James Smith",
+                },               
+              ],
+          },{
+            "title": "1984",
+            "subtitle": "Author - George Orwell""Price - 15000 MMK",
+            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6aVP3o8CreHxGf5KaRLuWQJCoaYch53_EyA&usqp=CAU",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Coffee:Kenneth Martinez",
+                },               
+              ],
+          },{
+            "title": "NORMAL PEOPLE",
+            "subtitle": "Author - Sally Rooney""Price - 15000 MMK",
+            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Learn More...",
+                  "payload": "Doctor:Barbara Young",
+                },               
+              ],
+          }
+
+          ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
+
+
 const bookselect = (sender_psid) => {
 
   let response = {
@@ -778,7 +836,7 @@ const bookselect = (sender_psid) => {
             {
               "content_type":"text",
               "title":"Fiction",
-              "payload":"visit:Fiction",              
+              "payload":"fit:Fiction",              
             },{
               "content_type":"text",
               "title":"Non-fiction",
@@ -852,7 +910,8 @@ const confirmAppointment = (sender_psid) => {
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
   summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
-   summery += "ddd:" + userInputs[user_id].ddd + "\u000A";
+  summery += "fit:" + userInputs[user_id].fit + "\u000A";
+  summery += "ddd:" + userInputs[user_id].ddd + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
