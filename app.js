@@ -836,7 +836,7 @@ const bookselect = (sender_psid) => {
             {
               "content_type":"text",
               "title":"Fiction",
-              "payload":"fittt:Fiction",              
+              "payload":"fitt:Fiction",              
             },{
               "content_type":"text",
               "title":"Non-fiction",
