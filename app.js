@@ -592,7 +592,7 @@ const handlePostback = (sender_psid, received_postback) => {
     firstOrFollowUp(sender_psid);
 
   }else if(payload.startsWith("Coffee:")){
-    let Coffeee_name = payload.slice(7);
+    let Coffee_name = payload.slice(7);
     console.log('SELECTED Coffee IS: ', Coffee_name);
     userInputs[user_id].Coffee = Coffee_name;
     console.log('TEST2', userInputs);
