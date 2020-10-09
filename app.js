@@ -583,8 +583,14 @@ const handlePostback = (sender_psid, received_postback) => {
     userInputs[user_id].doctor = doctor_name;
     console.log('TEST', userInputs);
     firstOrFollowUp(sender_psid);
-  }else{
 
+  }else if(payload.startsWith("Coffeee:")){
+    let Coffeee_name = payload.slice(8);
+    console.log('SELECTED Coffeee IS: ', Coffeee_name);
+    userInputs[user_id].Coffeee = Coffeee_name;
+    console.log('TEST2', userInputs);
+    firstOrFollowUp(sender_psid);}
+    else{
       switch(payload) {        
       case "yes":
           showButtonReplyYes(sender_psid);
@@ -713,35 +719,35 @@ const showDoctor = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "James Smith",
-            "subtitle": "General Surgeon",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
+            "title": "Books",
+            "subtitle": "Explore our collection of various category of books of your interest",
+            "image_url":"https://media.wired.com/photos/5be4cd03db23f3775e466767/master/w_2560%2Cc_limit/books-521812297.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "James Smith",
+                  "title": "Explore",
                   "payload": "Doctor:James Smith",
                 },               
               ],
           },{
-            "title": "Kenneth Martinez",
-            "subtitle": "General Surgeon",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
+            "title": "Check Our Coffee Menu",
+            "subtitle": "Discover our various smell and taste of coffee what you desire.",
+            "image_url":"https://img1.mashed.com/img/gallery/coffee-mistakes-youre-probably-making-at-home/intro-1594766282.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Kenneth Martinez",
+                  "title": "View Menu ☕☕☕",
                   "payload": "Doctor:Kenneth Martinez",
                 },               
               ],
           },{
-            "title": "Barbara Young",
-            "subtitle": "General Surgeon",
-            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
+            "title": "Our Story",
+            "subtitle": "Read more about our ZNet coffee & book shop and our exceptional.",
+            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Barbara Young",
+                  "title": "Learn More...",
                   "payload": "Doctor:Barbara Young",
                 },               
               ],
