@@ -632,7 +632,7 @@ if(payload.startsWith("Coffeee:")){
     let coffeee_name = payload.slice(8);
     console.log('SELECTED COFFEE IS: ', coffeee_name);
     userInputs[user_id].coffeee = coffeee_name;
-    console.log('TEST', userInputs);
+    console.log('TEST2', userInputs);
     dirnkOrD(sender_psid);
   }else{
 
