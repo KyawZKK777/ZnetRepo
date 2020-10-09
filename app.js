@@ -202,8 +202,10 @@ app.post('/admin/updateappointment', function(req,res){
     email:req.body.email,
     gender:req.body.gender,
     doctor:req.body.doctor,
+    coffeee:req.body.coffeee,
     department:req.body.department,
     visit:req.body.visit,
+    ddd:req.body.ddd,
     date:req.body.date,
     time:req.body.time,
     message:req.body.message,
@@ -410,6 +412,11 @@ function handleQuickReply(sender_psid, received_message) {
     
     userInputs[user_id].visit = visit;
     
+    current_question = 'q1';
+    botQuestions(current_question, sender_psid);
+  }else if(received_message.startsWith("ddd:")){
+    let dept = received_message.slice(4);
+    userInputs[user_id].ddd = ddd;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
   }else if(received_message.startsWith("department:")){
@@ -737,7 +744,7 @@ const showDoctor = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Menu ☕☕☕",
-                  "payload": "Doctor:Kenneth Martinez",
+                  "payload": "Coffeee:Kenneth Martinez",
                 },               
               ],
           },{
@@ -783,6 +790,27 @@ const firstOrFollowUp = (sender_psid) => {
 
 }
 
+
+const drink = (sender_psid) => {
+
+  let response = {
+    "text": "drink",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"First drink",
+              "payload":"ddd:first drink",              
+            },{
+              "content_type":"text",
+              "title":"Follow drink",
+              "payload":"ddd:follow drink",             
+            }
+    ]
+  };
+  callSend(sender_psid, response);
+
+}
+
 const botQuestions = (current_question, sender_psid) => {
   if(current_question == 'q1'){
     let response = {"text": bot_questions.q1};
@@ -812,7 +840,9 @@ const confirmAppointment = (sender_psid) => {
   console.log('APPOINTMENT INFO', userInputs);
   let summery = "department:" + userInputs[user_id].department + "\u000A";
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
+  summery += "coffeee:" + userInputs[user_id].coffeee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
+   summery += "ddd:" + userInputs[user_id].ddd + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
