@@ -202,7 +202,7 @@ app.post('/admin/updateappointment', function(req,res){
     email:req.body.email,
     gender:req.body.gender,
     doctor:req.body.doctor,
-    coffeee:req.body.coffeee,
+    coffee:req.body.coffee,
     department:req.body.department,
     visit:req.body.visit,
     ddd:req.body.ddd,
@@ -591,10 +591,10 @@ const handlePostback = (sender_psid, received_postback) => {
     console.log('TEST', userInputs);
     firstOrFollowUp(sender_psid);
 
-  }else if(payload.startsWith("Coffeee:")){
-    let Coffeee_name = payload.slice(8);
-    console.log('SELECTED Coffeee IS: ', Coffeee_name);
-    userInputs[user_id].Coffeee = Coffeee_name;
+  }else if(payload.startsWith("Coffee:")){
+    let Coffeee_name = payload.slice(7);
+    console.log('SELECTED Coffee IS: ', Coffee_name);
+    userInputs[user_id].Coffee = Coffee_name;
     console.log('TEST2', userInputs);
     drink(sender_psid);}
     else{
@@ -744,7 +744,7 @@ const showDoctor = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Menu ☕☕☕",
-                  "payload": "Coffeee:Kenneth Martinez",
+                  "payload": "Coffee:Kenneth Martinez",
                 },               
               ],
           },{
@@ -840,7 +840,7 @@ const confirmAppointment = (sender_psid) => {
   console.log('APPOINTMENT INFO', userInputs);
   let summery = "department:" + userInputs[user_id].department + "\u000A";
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
-  summery += "coffeee:" + userInputs[user_id].coffeee + "\u000A";
+  summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
   summery += "visit:" + userInputs[user_id].visit + "\u000A";
    summery += "ddd:" + userInputs[user_id].ddd + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
