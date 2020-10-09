@@ -790,7 +790,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Doctor:James Smith",
+                  "payload": "D:James Smith",
                 },               
               ],
           },{
@@ -801,7 +801,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Coffee:Kenneth Martinez",
+                  "payload": "D:Kenneth Martinez",
                 },               
               ],
           },{
@@ -812,7 +812,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Learn More...",
-                  "payload": "Doctor:Barbara Young",
+                  "payload": "Do:Barbara Young",
                 },               
               ],
           }
