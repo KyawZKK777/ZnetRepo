@@ -773,22 +773,22 @@ const showDoctor = (sender_psid) => {
 const bookselect = (sender_psid) => {
 
   let response = {
-    "text": "Slect your favorite category of book below 👇",
+    "text": "Select your favorite category of book below 👇",
     "quick_replies":[
             {
               "content_type":"text",
-              "title":"Fiiction",
-              "payload":"visit:Fiiction",              
+              "title":"Fiction",
+              "payload":"visit:Fiction",              
             },{
               "content_type":"text",
               "title":"Non-fiction",
               "payload":"visit:Non-fiction",             
-            }
+            },
             {
               "content_type":"text",
               "title":"Politics",
               "payload":"visit:Politics",             
-            }
+            },
             {
               "content_type":"text",
               "title":"Nobel",
