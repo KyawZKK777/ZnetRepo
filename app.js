@@ -597,6 +597,30 @@ const handlePostback = (sender_psid, received_postback) => {
     } 
 
   }
+if(payload.startsWith("Coffee:")){
+    let coffee_name = payload.slice(7);
+    console.log('SELECTED COFFEE IS: ', coffee_name);
+    userInputs[user_id].doctor = coffee_name;
+    console.log('TEST', userInputs);
+    dirnkOrD(sender_psid);
+  }else{
+
+      switch(payload) {        
+      case "yes":
+          showButtonReplyYes(sender_psid);
+        break;
+      case "no":
+          showButtonReplyNo(sender_psid);
+        break;                      
+      default:
+          defaultReply(sender_psid);
+    } 
+
+  }
+
+
+  
+}
 
 
   
@@ -731,7 +755,7 @@ const showDoctor = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Menu ☕☕☕",
-                  "payload": "Doctor:Kenneth Martinez",
+                  "payload": "Coffee:Kenneth Martinez",
                 },               
               ],
           },{
@@ -770,6 +794,24 @@ const firstOrFollowUp = (sender_psid) => {
               "content_type":"text",
               "title":"Follow Up",
               "payload":"visit:follow up",             
+            }
+    ]
+  };
+  callSend(sender_psid, response);
+
+  const dirnkOrDUp = (sender_psid) => {
+
+  let response = {
+    "text": "drink or D",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"First Time",
+              "payload":"dd:first time",              
+            },{
+              "content_type":"text",
+              "title":"Follow Up",
+              "payload":"dd:follow up",             
             }
     ]
   };
