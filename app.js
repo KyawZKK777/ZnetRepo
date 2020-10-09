@@ -784,7 +784,7 @@ const showFiction = (sender_psid) => {
           "template_type": "generic",
           "elements": [{
             "title": "Life of Pi",
-            "subtitle": "Author - Yann Martel""Price - 15000 MMK",
+            "subtitle": "Author - Yann Martel,Price - 15000 MMK",
             "image_url":"https://pictures.abebooks.com/isbn/9780156030205-us.jpg",                       
             "buttons": [
                 {
@@ -795,7 +795,7 @@ const showFiction = (sender_psid) => {
               ],
           },{
             "title": "1984",
-            "subtitle": "Author - George Orwell""Price - 15000 MMK",
+            "subtitle": "Author - George Orwell,Price - 15000 MMK",
             "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6aVP3o8CreHxGf5KaRLuWQJCoaYch53_EyA&usqp=CAU",                       
             "buttons": [
                 {
@@ -806,7 +806,7 @@ const showFiction = (sender_psid) => {
               ],
           },{
             "title": "NORMAL PEOPLE",
-            "subtitle": "Author - Sally Rooney""Price - 15000 MMK",
+            "subtitle": "Author - Sally Rooney,Price - 15000 MMK",
             "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
             "buttons": [
                 {
