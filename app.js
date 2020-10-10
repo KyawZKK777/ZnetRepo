@@ -204,8 +204,7 @@ app.post('/admin/updateappointment', function(req,res){
     doctor:req.body.doctor,
     coffee:req.body.coffee,
     department:req.body.department,
-    visit:req.body.visit,
-    box:req.body.box,
+    select:req.body.select,
     drink:req.body.drink,
     date:req.body.date,
     time:req.body.time,
@@ -408,8 +407,8 @@ function handleQuickReply(sender_psid, received_message) {
 
   received_message = received_message.toLowerCase();
 
-  if(payload.startsWith("drink:")){
-    let dept = payload.slice(6);
+  if(received_message.startsWith("drink:")){
+    let dept = received_message.slice(6);
     userInputs[user_id].drink = drink;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
@@ -417,9 +416,9 @@ function handleQuickReply(sender_psid, received_message) {
     let dept = received_message.slice(11);
     userInputs[user_id].department = dept;
     showDoctor(sender_psid);
-  }else if(payload.startsWith("box:")){
-    let dept = payload.slice(4);
-    userInputs[user_id].box = box;
+  }else if(received_message.startsWith("select:")){
+    let dept = received_message.slice(7);
+    userInputs[user_id].select = select;
     showFiction(sender_psid);
   }else{
 
@@ -829,21 +828,21 @@ const bookselect = (sender_psid) => {
             {
               "content_type":"text",
               "title":"Fiction",
-              "payload":"box:Fiction",              
+              "payload":"select:Fiction",              
             },{
               "content_type":"text",
               "title":"Non-fiction",
-              "payload":"box:Non-fiction",             
+              "payload":"select:Non-fiction",             
             },
             {
               "content_type":"text",
               "title":"Politics",
-              "payload":"box:Politics",             
+              "payload":"select:Politics",             
             },
             {
               "content_type":"text",
               "title":"Nobel",
-              "payload":"box:Nobel",             
+              "payload":"select:Nobel",             
             }
     ]
   };
@@ -902,8 +901,7 @@ const confirmAppointment = (sender_psid) => {
   let summery = "department:" + userInputs[user_id].department + "\u000A";
   summery += "doctor:" + userInputs[user_id].doctor + "\u000A";
   summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
-  summery += "visit:" + userInputs[user_id].visit + "\u000A";
-  summery += "box:" + userInputs[user_id].box+ "\u000A";
+  summery += "select:" + userInputs[user_id].select+ "\u000A";
   summery += "drink:" + userInputs[user_id].drink + "\u000A";
   summery += "date:" + userInputs[user_id].date + "\u000A";
   summery += "time:" + userInputs[user_id].time + "\u000A";
