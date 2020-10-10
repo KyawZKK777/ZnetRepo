@@ -408,8 +408,8 @@ function handleQuickReply(sender_psid, received_message) {
 
   received_message = received_message.toLowerCase();
 
-  if(received_message.startsWith("drink:")){
-    let dept = received_message.slice(6);
+  if(payload.startsWith("drink:")){
+    let dept = payload.slice(6);
     userInputs[user_id].drink = drink;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
@@ -417,8 +417,8 @@ function handleQuickReply(sender_psid, received_message) {
     let dept = received_message.slice(11);
     userInputs[user_id].department = dept;
     showDoctor(sender_psid);
-  }else if(received_message.startsWith("box:")){
-    let dept = received_message.slice(4);
+  }else if(payload.startsWith("box:")){
+    let dept = payload.slice(4);
     userInputs[user_id].box = box;
     showFiction(sender_psid);
   }else{
