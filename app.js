@@ -205,7 +205,7 @@ app.post('/admin/updateorder', function(req,res){
     select:req.body.select,
     drink:req.body.drink,
     date:req.body.date,
-    time:req.body.time,
+    or:req.body.or,
     message:req.body.message,
     status:req.body.status,
     doc_id:req.body.doc_id,
@@ -572,7 +572,11 @@ const handlePostback = (sender_psid, received_postback) => {
     userInputs[user_id].book = book_name;
     console.log('TEST', userInputs);
     bookselect(sender_psid);
-
+}else if(received_message.startsWith("OR:")){
+    let or = received_message.slice(3);
+    userInputs[user_id].or = or;
+    current_question = 'q1';
+    botQuestions(current_question, sender_psid);
   }else if(payload.startsWith("Coffee:")){
     let Coffee_name = payload.slice(7);
     console.log('SELECTED Coffee IS: ', Coffee_name);
@@ -761,7 +765,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "D:James Smith",
+                  "payload": "or:Life",
                 },               
               ],
           },{
@@ -772,7 +776,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "D:Kenneth Martinez",
+                  "payload": "or:1984",
                 },               
               ],
           },{
@@ -783,7 +787,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Learn More...",
-                  "payload": "Do:Barbara Young",
+                  "payload": "or:NORMAL",
                 },               
               ],
           }
@@ -875,7 +879,7 @@ const order = (sender_psid) => {
   summery += "select:" + userInputs[user_id].select+ "\u000A";
   summery += "drink:" + userInputs[user_id].drink + "\u000A";
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
-  summery += "time:" + userInputs[user_id].time + "\u000A";
+  summery += "or:" + userInputs[user_id].or + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
   summery += "gender:" + userInputs[user_id].gender + "\u000A";
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
