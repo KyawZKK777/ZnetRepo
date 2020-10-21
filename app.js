@@ -695,7 +695,7 @@ const bookOrder = (sender_psid) => {
 }
 
 
-const showbook = (sender_psid) => {
+const showBook = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
