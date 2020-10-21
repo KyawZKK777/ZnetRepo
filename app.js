@@ -203,6 +203,7 @@ app.post('/admin/updateorder', function(req,res){
     coffee:req.body.coffee,
     department:req.body.department,
     select:req.body.select,
+    selec:req.body.selec,
     drink:req.body.drink,
     date:req.body.date,
     or:req.body.or,
@@ -418,6 +419,10 @@ function handleQuickReply(sender_psid, received_message) {
     let select = received_message.slice(7);
     userInputs[user_id].select = select;
     showFiction(sender_psid);
+  }else if(received_message.startsWith("selec:")){
+    let selec = received_message.slice(6);
+    userInputs[user_id].selec = selec;
+    showNonFiction(sender_psid);
   }else{
 
       switch(received_message) {                
@@ -427,7 +432,7 @@ function handleQuickReply(sender_psid, received_message) {
         case "off":
             showQuickReplyOff(sender_psid);
           break; 
-        case "confirm-aorder":
+        case "confirm-order":
               saveOrder(userInputs[user_id], sender_psid);
           break;              
         default:
@@ -803,6 +808,57 @@ const showFiction = (sender_psid) => {
 
 }
 
+const showNonFiction = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "The Future of Humanity",
+            "subtitle": "Author - MICHIO KAKU,Price - 1200 MMK",
+            "image_url":"https://malwarwickonbooks.com/wp-content/uploads/2018/10/The-Future-of-Humanity-228x350.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:Future",
+                },               
+              ],
+          },{
+            "title": "I Know Why The Caged Bird Sings?",
+            "subtitle": "Author - Maya Angelou,Price - 14000 MMK",
+            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSCVG2tn5ter4bXqeP_xMUVR2Uvh4ur5rkzDw&usqp=CAU",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:Bird",
+                },               
+              ],
+          },{
+            "title": "BECOMING",
+            "subtitle": "Author - MICHELLE OBAMA,Price - 17000 MMK",
+            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVOX90o8B0r4qXK8rk2Qt_alvKWH-0PMqdXg&usqp=CAU",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Learn More...",
+                  "payload": "Or:BECOMING",
+                },               
+              ],
+          }
+
+          ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
+
 
 const bookselect = (sender_psid) => {
 
@@ -816,7 +872,7 @@ const bookselect = (sender_psid) => {
             },{
               "content_type":"text",
               "title":"Non-fiction",
-              "payload":"select:Non-fiction",             
+              "payload":"selec:Non-fiction",             
             },
             {
               "content_type":"text",
@@ -878,6 +934,7 @@ const order = (sender_psid) => {
   summery += "book:" + userInputs[user_id].book + "\u000A";
   summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
   summery += "select:" + userInputs[user_id].select+ "\u000A";
+  summery += "selec:" + userInputs[user_id].selec+ "\u000A";
   summery += "drink:" + userInputs[user_id].drink + "\u000A";
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "or:" + userInputs[user_id].or + "\u000A";
