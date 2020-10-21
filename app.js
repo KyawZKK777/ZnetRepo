@@ -572,8 +572,8 @@ const handlePostback = (sender_psid, received_postback) => {
     userInputs[user_id].book = book_name;
     console.log('TEST', userInputs);
     bookselect(sender_psid);
-}else if(received_message.startsWith("OR:")){
-    let or = received_message.slice(3);
+}else if(.startsWith("or:")){
+    let or = payload.slice(3);
     userInputs[user_id].or = or;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
