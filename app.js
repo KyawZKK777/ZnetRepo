@@ -676,7 +676,7 @@ start hospital
 const bookOrder = (sender_psid) => {
    let response1 = {"text": "Welcome to Welcome to ZNET Coffee and Book shop"};
    let response2 = {"text": "Perfect time for a cup of coffee don't you think? ☕" };
-   let response3= {"text": "How can we help you today?""Scroll to view all 👈" };
+   let response3= {"text": "How can we help you today? Scroll to view all 👈" };
 
  callSend(sender_psid, response1).then(()=>{
       return callSend(sender_psid, response2).then(()=>{
