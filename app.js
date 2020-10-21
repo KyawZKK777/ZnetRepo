@@ -676,13 +676,13 @@ start hospital
 const bookOrder = (sender_psid) => {
    let response1 = {"text": "Welcome to Welcome to ZNET Coffee and Book shop"};
    let response2 = {"text": "Perfect time for a cup of coffee don't you think? ☕" };
-   let response3= {"text": "How can we help you today?"
-   "Scroll to view all 👈" };
+   let response3= {"text": "How can we help you today?""Scroll to view all 👈" };
 
-  callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2).then(()=>{
-    return callSend(sender_psid, response3);
+ callSend(sender_psid, response1).then(()=>{
+      return callSend(sender_psid, response2).then(()=>{
+        return callSend(sender_psid, response3);
   });
+      });
 }
 
 
@@ -854,15 +854,7 @@ const botQuestions = (current_question, sender_psid) => {
   }else if(current_question == 'q4'){
     let response = {"text": bot_questions.q4};
     callSend(sender_psid, response);
-  }else if(current_question == 'q5'){
-    let response = {"text": bot_questions.q5};
-    callSend(sender_psid, response);
-  }else if(current_question == 'q6'){
-    let response = {"text": bot_questions.q6};
-    callSend(sender_psid, response);
-  }else if(current_question == 'q7'){
-    let response = {"text": bot_questions.q7};
-    callSend(sender_psid, response);
+ 
   }
 }
 
