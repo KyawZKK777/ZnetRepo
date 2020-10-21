@@ -203,7 +203,9 @@ app.post('/admin/updateorder', function(req,res){
     coffee:req.body.coffee,
     department:req.body.department,
     select:req.body.select,
+    selet:req.body.selet,
     selec:req.body.selec,
+    sele:req.body.sele,
     drink:req.body.drink,
     date:req.body.date,
     or:req.body.or,
@@ -423,6 +425,14 @@ function handleQuickReply(sender_psid, received_message) {
     let selec = received_message.slice(6);
     userInputs[user_id].selec = selec;
     showNonFiction(sender_psid);
+  }else if(received_message.startsWith("selet:")){
+    let selet = received_message.slice(6);
+    userInputs[user_id].selet = selet;
+    showPolitics(sender_psid);
+  }else if(received_message.startsWith("sele:")){
+    let sele = received_message.slice(5);
+    userInputs[user_id].selet = sele;
+    showNovel(sender_psid);
   }else{
 
       switch(received_message) {                
@@ -859,6 +869,107 @@ const showNonFiction = (sender_psid) => {
 
 }
 
+const showNovel = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "The STAND",
+            "subtitle": "Author - STEVEN KING,Price - 13000 MMK",
+            "image_url":"https://i.pinimg.com/originals/f5/25/69/f525698b99e287aa9e0f67e3674c1150.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:STAND",
+                },               
+              ],
+          },{
+            "title": "LEVING TIME",
+            "subtitle": "Author - JODI PICOULT,Price - 10000 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394487223i/18816603._UY390_SS390_.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:TIME",
+                },               
+              ],
+          },{
+            "title": "THE HOBBIT",
+            "subtitle": "Author - J.R.R TOLKIEN,Price - 17000 MMK",
+            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3dq665njj8WIdfBgJ8HUGcSpMjv9TSFZWVQ&usqp=CAU",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:HOBBIT",
+                },               
+              ],
+          }
+
+          ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
+
+const showPolitics = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "THE AUDACITY OF HOPE",
+            "subtitle": "Author - BARACK OBAMA,Price - 20000 MMK",
+            "image_url":"https://i5.walmartimages.com/asr/d3db3aee-025f-48b8-bfcb-5b9b27949395_1.6a61ee5efea5205d012327ecd4c223a3.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:HOPE",
+                },               
+              ],
+          },{
+            "title": "THE MIRAGE OF POWER",
+            "subtitle": "Author - DR.MUBASHIR HASAN,Price - 12000 MMK",
+            "image_url":"https://fivebooks.com/app/uploads/2010/09/Mirage.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:POWER"
+                },               
+              ],
+          },{
+            "title": "HERE ARE YOU ARE GODS",
+            "subtitle": "Author - CHRISTOPHER J. H. WRIGHT,Price - 15000 MMK",
+            "image_url":"https://www.ivpress.com/Media/Default/_Profiles/7da17a8b/53f3c03/5335.jpg?v=637273899941809695",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:GODS",
+                },               
+              ],
+          }
+
+          ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
 
 const bookselect = (sender_psid) => {
 
@@ -877,12 +988,12 @@ const bookselect = (sender_psid) => {
             {
               "content_type":"text",
               "title":"Politics",
-              "payload":"select:Politics",             
+              "payload":"selet:Politics",             
             },
             {
               "content_type":"text",
-              "title":"Nobel",
-              "payload":"select:Nobel",             
+              "title":"Novel",
+              "payload":"sele:Novel",             
             }
     ]
   };
@@ -934,7 +1045,9 @@ const order = (sender_psid) => {
   summery += "book:" + userInputs[user_id].book + "\u000A";
   summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
   summery += "select:" + userInputs[user_id].select+ "\u000A";
+  summery += "selet:" + userInputs[user_id].selet+ "\u000A";
   summery += "selec:" + userInputs[user_id].selec+ "\u000A";
+  summery += "sele:" + userInputs[user_id].sele+ "\u000A";
   summery += "drink:" + userInputs[user_id].drink + "\u000A";
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "or:" + userInputs[user_id].or + "\u000A";
