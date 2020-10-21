@@ -572,7 +572,7 @@ const handlePostback = (sender_psid, received_postback) => {
     userInputs[user_id].book = book_name;
     console.log('TEST', userInputs);
     bookselect(sender_psid);
-}else if(.startsWith("or:")){
+}else if(.startsWith("Or:")){
     let or = payload.slice(3);
     userInputs[user_id].or = or;
     current_question = 'q1';
@@ -765,7 +765,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "or:Life",
+                  "payload": "Or:Life",
                 },               
               ],
           },{
@@ -776,7 +776,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "or:1984",
+                  "payload": "Or:1984",
                 },               
               ],
           },{
@@ -787,7 +787,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Learn More...",
-                  "payload": "or:NORMAL",
+                  "payload": "Or:NORMAL",
                 },               
               ],
           }
