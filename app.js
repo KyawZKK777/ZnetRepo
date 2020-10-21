@@ -572,9 +572,10 @@ const handlePostback = (sender_psid, received_postback) => {
     userInputs[user_id].book = book_name;
     console.log('TEST', userInputs);
     bookselect(sender_psid);
-}else if(.startsWith("Or:")){
-    let or = payload.slice(3);
-    userInputs[user_id].or = or;
+}else if(payload.startsWith("Or:")){
+    let or_name = payload.slice(3);
+    console.log('SELECTED OR IS: ', or_name);
+    userInputs[user_id].or = or_name;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
   }else if(payload.startsWith("Coffee:")){
