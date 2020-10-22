@@ -509,7 +509,7 @@ const handleMessage = (sender_psid, received_message) => {
           hiReply(sender_psid);
         break;
       case "hospital":
-          hospitalOrder(sender_psid);
+          bookOrder(sender_psid);
         break;                
       case "text":
         textReply(sender_psid);
