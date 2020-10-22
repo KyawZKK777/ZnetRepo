@@ -486,12 +486,12 @@ const handleMessage = (sender_psid, received_message) => {
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q4'){
      console.log('PHONE NO ENTERED',received_message.text);
-     userInputs[user_id].email = received_message.text;
+     userInputs[user_id].phone = received_message.text;
      current_question = 'q5';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q5'){
      console.log('EMAIl ENTERED',received_message.text);
-     userInputs[user_id].phone = received_message.text;
+     userInputs[user_id].email = received_message.text;
      current_question = '';
      botQuestions(current_question, sender_psid);
  
