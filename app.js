@@ -1059,6 +1059,7 @@ const confirmOrder = (sender_psid) => {
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
   
+  
 
   let response1 = {"text": summery};
 
