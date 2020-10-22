@@ -24,7 +24,7 @@ app.use(body_parser.json());
 app.use(body_parser.urlencoded());
 
 const bot_questions = {
-  "q1": "how many book?",
+  "q1": "how many book? (number)",
   "q2": "please enter full name",
   "q3": "what is delivery address",
   "q4": "Please share your phone number",
