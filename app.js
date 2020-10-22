@@ -184,7 +184,7 @@ app.get('/admin/updateorder/:doc_id', async function(req,res){
     data.doc_id = doc.id;
 
     console.log('Document data:', data);
-    res.render('editordert.ejs', {data:data});
+    res.render('editorder.ejs', {data:data});
   } 
 
 });
@@ -1059,7 +1059,7 @@ const confirmOrder = (sender_psid) => {
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
   
-  
+
 
   let response1 = {"text": summery};
 
