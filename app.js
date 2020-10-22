@@ -157,7 +157,7 @@ app.get('/admin/orders', async function(req,res){
   let data = []; 
 
   snapshot.forEach(doc => {
-    let oreder = {};
+    let order = {};
     order = doc.data();
     order.doc_id = doc.id;
 
