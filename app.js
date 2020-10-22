@@ -1043,7 +1043,7 @@ const botQuestions = (current_question, sender_psid) => {
     let response = {"text": bot_questions.q4};
     callSend(sender_psid, response);
   }else if(current_question == 'q5'){
-    let response = {"text": bot_questions.q3};
+    let response = {"text": bot_questions.q5};
     callSend(sender_psid, response);
  
   }
@@ -1052,20 +1052,13 @@ const botQuestions = (current_question, sender_psid) => {
 const confirmOrder = (sender_psid) => {
   console.log('ORDER INFO', userInputs);
   let summery = "department:" + userInputs[user_id].department + "\u000A";
-  summery += "book:" + userInputs[user_id].book + "\u000A";
-  summery += "coffee:" + userInputs[user_id].coffee + "\u000A";
-  summery += "select:" + userInputs[user_id].select+ "\u000A";
-  summery += "selet:" + userInputs[user_id].selet+ "\u000A";
-  summery += "selec:" + userInputs[user_id].selec+ "\u000A";
-  summery += "sele:" + userInputs[user_id].sele+ "\u000A";
-  summery += "drink:" + userInputs[user_id].drink + "\u000A";
+ 
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
-  summery += "or:" + userInputs[user_id].or + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
   summery += "nofbooks:" + userInputs[user_id].nofbooks + "\u000A";
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
-  summery += "message:" + userInputs[user_id].message + "\u000A";
+  
 
   let response1 = {"text": summery};
 
