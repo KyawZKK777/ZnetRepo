@@ -1051,7 +1051,7 @@ const botQuestions = (current_question, sender_psid) => {
 
 const confirmOrder = (sender_psid) => {
   console.log('ORDER INFO', userInputs);
-  let 
+  let summery = "department:" + userInputs[user_id].department + "\u000A";
  
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
