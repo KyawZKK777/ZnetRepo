@@ -24,10 +24,11 @@ app.use(body_parser.json());
 app.use(body_parser.urlencoded());
 
 const bot_questions = {
-  "q1": "please enter full name",
-  "q2": "what is delivery address",
-  "q3": "Please share your phone number",
-  "q4": "Please share your email address",
+  "q1": "how many book?",
+  "q2": "please enter full name",
+  "q3": "what is delivery address",
+  "q4": "Please share your phone number",
+  "q5": "Please share your email address",
   
 }
 
@@ -200,6 +201,7 @@ app.post('/admin/updateorder', function(req,res){
     email:req.body.email,
     deliveryadd:req.body.deliveryadd,
     book:req.body.book,
+    noofbook:req.body.noofbook,
     coffee:req.body.coffee,
     department:req.body.department,
     select:req.body.select,
@@ -468,22 +470,27 @@ const handleMessage = (sender_psid, received_message) => {
   if(received_message.attachments){
      handleAttachments(sender_psid, received_message.attachments);
   }else if(current_question == 'q1'){
-     console.log('NAME ENTERED',received_message.text);
+     console.log('TOTAL NUMBER OF BOOKS ENTERED',received_message.text);
      userInputs[user_id].name = received_message.text;
      current_question = 'q2';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q2'){
-     console.log('DELIVERY ADDRESS ENTERED',received_message.text);
-     userInputs[user_id].deliveryadd = received_message.text;
+     console.log('NAME ENTERED',received_message.text);
+     userInputs[user_id].name = received_message.text;
      current_question = 'q3';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q3'){
-     console.log('EMAIL ENTERED',received_message.text);
-     userInputs[user_id].email = received_message.text;
+     console.log('DELIVERY ADDRESS ENTERED',received_message.text);
+     userInputs[user_id].deliveryadd = received_message.text;
      current_question = 'q4';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q4'){
      console.log('PHONE NO ENTERED',received_message.text);
+     userInputs[user_id].email = received_message.text;
+     current_question = 'q5';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q5'){
+     console.log('EMAIl ENTERED',received_message.text);
      userInputs[user_id].phone = received_message.text;
      current_question = '';
      botQuestions(current_question, sender_psid);
@@ -1035,6 +1042,9 @@ const botQuestions = (current_question, sender_psid) => {
   }else if(current_question == 'q4'){
     let response = {"text": bot_questions.q4};
     callSend(sender_psid, response);
+  }else if(current_question == 'q5'){
+    let response = {"text": bot_questions.q3};
+    callSend(sender_psid, response);
  
   }
 }
@@ -1052,7 +1062,7 @@ const order = (sender_psid) => {
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "or:" + userInputs[user_id].or + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
-  summery += "gender:" + userInputs[user_id].gender + "\u000A";
+  summery += "nofbooks:" + userInputs[user_id].nofbooks + "\u000A";
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
   summery += "message:" + userInputs[user_id].message + "\u000A";
