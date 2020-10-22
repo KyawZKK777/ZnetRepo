@@ -174,8 +174,8 @@ app.get('/admin/orders', async function(req,res){
 app.get('/admin/updateorder/:doc_id', async function(req,res){
   let doc_id = req.params.doc_id; 
   
-  const appoinmentRef = db.collection('orders').doc(doc_id);
-  const doc = await appoinmentRef.get();
+  const orderRef = db.collection('orders').doc(doc_id);
+  const doc = await orderRef.get();
   if (!doc.exists) {
     console.log('No such document!');
   } else {
@@ -471,7 +471,7 @@ const handleMessage = (sender_psid, received_message) => {
      handleAttachments(sender_psid, received_message.attachments);
   }else if(current_question == 'q1'){
      console.log('TOTAL NUMBER OF BOOKS ENTERED',received_message.text);
-     userInputs[user_id].nofbooks = received_message.text;
+     userInputs[user_id].nof = received_message.text;
      current_question = 'q2';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q2'){
