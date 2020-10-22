@@ -201,7 +201,7 @@ app.post('/admin/updateorder', function(req,res){
     email:req.body.email,
     deliveryadd:req.body.deliveryadd,
     book:req.body.book,
-    noofbook:req.body.noofbook,
+    nofbook:req.body.nofbook,
     coffee:req.body.coffee,
     department:req.body.department,
     select:req.body.select,
