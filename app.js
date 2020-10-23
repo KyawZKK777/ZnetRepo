@@ -38,7 +38,12 @@ let user_id = '';
 
 let userInputs = [];
 
-
+let books = [
+  {
+    name: "The Life of Pi",
+    price: 15000,
+  }
+]
 /*
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -597,6 +602,8 @@ const handlePostback = (sender_psid, received_postback) => {
 }else if(payload.startsWith("Or:")){
     let or_name = payload.slice(3);
     console.log('SELECTED OR IS: ', or_name);
+    
+    userInputs[user_id].price = getBook.price;
     userInputs[user_id].or = or_name;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
@@ -788,7 +795,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:Life",
+                  "payload": "Or:The Life of Pi",
                 },               
               ],
           },{
@@ -824,6 +831,7 @@ const showFiction = (sender_psid) => {
   callSend(sender_psid, response);
 
 }
+const getBook = (id) =>  books.filter((book)=> name == book.name )[0];
 
 const showNonFiction = (sender_psid) => {
     let response = {
@@ -1051,13 +1059,15 @@ const botQuestions = (current_question, sender_psid) => {
 
 const confirmOrder = (sender_psid) => {
   console.log('ORDER INFO', userInputs);
-  let summery = "department:" + userInputs[user_id].department + "\u000A";
+  let summery = "book:" + userInputs[user_id].book + "\u000A";
  
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
   summery += "nofbooks:" + userInputs[user_id].nofbooks + "\u000A";
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
+  summery += "quantity:"+userInputs[user_id].nofbooks + "\u000A";
+  summery += "totalprice:" + userInputs[user_id].price + "\u000A";
   
 
 
