@@ -216,6 +216,7 @@ app.post('/admin/updateorder', function(req,res){
     drink:req.body.drink,
     date:req.body.date,
     or:req.body.or,
+    price:req.body.price,
     message:req.body.message,
     status:req.body.status,
     doc_id:req.body.doc_id,
