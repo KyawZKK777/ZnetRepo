@@ -439,7 +439,7 @@ function handleQuickReply(sender_psid, received_message) {
         case "start": 
           showMenu(sender_psid);
           break;
-         case "Fiction": 
+         case "fiction": 
             showFiction(sender_psid);
           break;                
         case "on":
@@ -512,7 +512,7 @@ const handleMessage = (sender_psid, received_message) => {
       case "hi":
           botWelcome(sender_psid);
         break;
-      case "Znet":
+      case "znet":
       console.log("insideZnet");
           botWelcome(sender_psid);
         break;                
