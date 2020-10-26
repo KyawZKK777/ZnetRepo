@@ -830,7 +830,7 @@ const showFiction = (sender_psid) => {
   callSend(sender_psid, response);
 
 }
-const getBook = (id) =>  books.filter((book)=> name == book.name )[0];
+const getBook = (id) =>  books.filter((book)=> id == book.id )[0];
 
 const showNonFiction = (sender_psid) => {
     let response = {
