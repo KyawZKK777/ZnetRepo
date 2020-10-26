@@ -1067,8 +1067,8 @@ const confirmOrder = (sender_psid) => {
   summery += "email:" + userInputs[user_id].email + "\u000A";
   summery += "quantity:"+userInputs[user_id].nofbooks + "\u000A";
   
-  $total = parseInt(userInputs[user_id].nofbooks) * userInputs[user_id].price;
-  summery += "totalprice:" + $total + "\u000A";
+  let total = parseInt(userInputs[user_id].nofbooks) * userInputs[user_id].price;
+  summery += "totalprice:" + total + "\u000A";
 
 
   let response1 = {"text": summery};
