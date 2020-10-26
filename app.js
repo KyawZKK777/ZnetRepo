@@ -40,6 +40,7 @@ let userInputs = [];
 
 let books = [
   {
+    id: "001",
     name: "The Life of Pi",
     price: 15000,
   }
@@ -597,8 +598,8 @@ const handlePostback = (sender_psid, received_postback) => {
     let or_name = payload.slice(3);
     console.log('SELECTED OR IS: ', or_name);
     
-   // userInputs[user_id].price = getBook.price;
-    userInputs[user_id].or = or_name;
+    userInputs[user_id].price = getBook(or_name).price;
+    userInputs[user_id].or = getBook(or_name).name;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
   }else if(payload.startsWith("Coffee:")){
@@ -793,7 +794,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:The Life of Pi",
+                  "payload": "Or:001",
                 },               
               ],
           },{
@@ -1065,8 +1066,9 @@ const confirmOrder = (sender_psid) => {
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
   summery += "quantity:"+userInputs[user_id].nofbooks + "\u000A";
-  //summery += "totalprice:" + userInputs[user_id].price + "\u000A";
   
+  $total = intval(suerInputs[user_id].nofbooks) * userInputs[user_id].price;
+  summery += "totalprice:" + $total + "\u000A";
 
 
   let response1 = {"text": summery};
