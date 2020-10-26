@@ -513,6 +513,7 @@ const handleMessage = (sender_psid, received_message) => {
           hiReply(sender_psid);
         break;
       case "Znet":
+      console.log("insideZnet");
           botWelcome(sender_psid);
         break;                
       case "text":
