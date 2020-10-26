@@ -1067,7 +1067,7 @@ const confirmOrder = (sender_psid) => {
   summery += "email:" + userInputs[user_id].email + "\u000A";
   summery += "quantity:"+userInputs[user_id].nofbooks + "\u000A";
   
-  $total = intval(suerInputs[user_id].nofbooks) * userInputs[user_id].price;
+  $total = parseInt(suerInputs[user_id].nofbooks) * userInputs[user_id].price;
   summery += "totalprice:" + $total + "\u000A";
 
 
