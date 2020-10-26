@@ -421,14 +421,6 @@ function handleQuickReply(sender_psid, received_message) {
     userInputs[user_id].drink = drink;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
-  }else if(received_message.startsWith("department:")){
-    let dept = received_message.slice(11);
-    userInputs[user_id].department = dept;
-    showBook(sender_psid);
-  }else if(received_message.startsWith("select:")){
-    let select = received_message.slice(7);
-    userInputs[user_id].select = select;
-    showFiction(sender_psid);
   }else if(received_message.startsWith("selec:")){
     let selec = received_message.slice(6);
     userInputs[user_id].selec = selec;
@@ -443,7 +435,13 @@ function handleQuickReply(sender_psid, received_message) {
     showNovel(sender_psid);
   }else{
 
-      switch(received_message) {                
+      switch(received_message) {
+        case "start": 
+          showMenu(sender_psid);
+          break;
+         case "Fiction": 
+            showFiction(sender_psid);
+          break;                
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -514,8 +512,8 @@ const handleMessage = (sender_psid, received_message) => {
       case "hi":
           hiReply(sender_psid);
         break;
-      case "hospital":
-          bookOrder(sender_psid);
+      case "Znet":
+          botWelcome(sender_psid);
         break;                
       case "text":
         textReply(sender_psid);
@@ -594,17 +592,11 @@ const handlePostback = (sender_psid, received_postback) => {
   console.log('BUTTON PAYLOAD', payload);
 
   
-  if(payload.startsWith("Book:")){
-    let book_name = payload.slice(5);
-    console.log('SELECTED BOOK IS: ', book_name);
-    userInputs[user_id].book = book_name;
-    console.log('TEST', userInputs);
-    bookselect(sender_psid);
-}else if(payload.startsWith("Or:")){
+   if(payload.startsWith("Or:")){
     let or_name = payload.slice(3);
     console.log('SELECTED OR IS: ', or_name);
     
-    userInputs[user_id].price = getBook.price;
+   // userInputs[user_id].price = getBook.price;
     userInputs[user_id].or = or_name;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
@@ -615,7 +607,10 @@ const handlePostback = (sender_psid, received_postback) => {
     console.log('TEST2', userInputs);
     drink(sender_psid);}
     else{
-      switch(payload) {        
+      switch(payload) {
+      case "books-menu":
+          bookCategory(sender_psid);
+        break;        
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -706,9 +701,9 @@ function webviewTest(sender_psid){
 }
 
 /**************
-start hospital
+start Znet
 **************/
-const bookOrder = (sender_psid) => {
+const botWelcome = (sender_psid) => {
    let response1 = {"text": "Welcome to Welcome to ZNET Coffee and Book shop"};
    let response2 = {"text": "Perfect time for a cup of coffee don't you think? ☕" };
    let response3= {"text": "How can we help you today? ",
@@ -717,7 +712,7 @@ const bookOrder = (sender_psid) => {
             {
               "content_type":"text",
               "title":"click to view all 👈",
-              "payload":"department:Start",              
+              "payload":"Start",              
             } 
             ] 
           };
@@ -730,7 +725,7 @@ const bookOrder = (sender_psid) => {
 }
 
 
-const showBook = (sender_psid) => {
+const showMenu = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
@@ -744,7 +739,7 @@ const showBook = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Explore",
-                  "payload": "Book:James Smith",
+                  "payload": "books-menu",
                 },               
               ],
           },{
@@ -755,7 +750,7 @@ const showBook = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Menu ☕☕☕",
-                  "payload": "Coffee:Kenneth Martinez",
+                  "payload": "coffee-menu",
                 },               
               ],
           },{
@@ -766,7 +761,7 @@ const showBook = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Learn More...",
-                  "payload": "Doctor:Barbara Young",
+                  "payload": "our-story",
                 },               
               ],
           }
@@ -987,7 +982,7 @@ const showPolitics = (sender_psid) => {
 
 }
 
-const bookselect = (sender_psid) => {
+const bookCategory = (sender_psid) => {
 
   let response = {
     "text": "Select your favorite category of book below 👇",
@@ -995,21 +990,21 @@ const bookselect = (sender_psid) => {
             {
               "content_type":"text",
               "title":"Fiction",
-              "payload":"select:Fiction",              
+              "payload":"Fiction",              
             },{
               "content_type":"text",
               "title":"Non-fiction",
-              "payload":"selec:Non-fiction",             
+              "payload":"Non-fiction",             
             },
             {
               "content_type":"text",
               "title":"Politics",
-              "payload":"selet:Politics",             
+              "payload":"Politics",             
             },
             {
               "content_type":"text",
               "title":"Novel",
-              "payload":"sele:Novel",             
+              "payload":"Novel",             
             }
     ]
   };
@@ -1060,7 +1055,7 @@ const botQuestions = (current_question, sender_psid) => {
 
 const confirmOrder = (sender_psid) => {
   console.log('ORDER INFO', userInputs);
-  let summery = "book:" + userInputs[user_id].book + "\u000A";
+  let summery = "book:" + userInputs[user_id].or + "\u000A";
  
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
@@ -1068,7 +1063,7 @@ const confirmOrder = (sender_psid) => {
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
   summery += "quantity:"+userInputs[user_id].nofbooks + "\u000A";
-  summery += "totalprice:" + userInputs[user_id].price + "\u000A";
+  //summery += "totalprice:" + userInputs[user_id].price + "\u000A";
   
 
 
@@ -1111,7 +1106,7 @@ const saveOrder = (arg, sender_psid) => {
 }
 
 /**************
-end hospital
+end Znet
 **************/
 
 
