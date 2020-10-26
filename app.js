@@ -704,6 +704,7 @@ function webviewTest(sender_psid){
 start Znet
 **************/
 const botWelcome = (sender_psid) => {
+  console.log("insidebotwelcome");
    let response1 = {"text": "Welcome to Welcome to ZNET Coffee and Book shop"};
    let response2 = {"text": "Perfect time for a cup of coffee don't you think? ☕" };
    let response3= {"text": "How can we help you today? ",
