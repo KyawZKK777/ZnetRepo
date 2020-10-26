@@ -510,7 +510,7 @@ const handleMessage = (sender_psid, received_message) => {
 
       switch(user_message) { 
       case "hi":
-          hiReply(sender_psid);
+          botWelcome(sender_psid);
         break;
       case "Znet":
       console.log("insideZnet");
