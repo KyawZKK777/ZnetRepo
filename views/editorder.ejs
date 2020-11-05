@@ -17,12 +17,12 @@
     }(document, 'script', 'Messenger'));
 
     const APP_ID = 102104795006867;    
-    var senderID = "";
+    var sender_id = "";
     
     window.extAsyncInit = function() {
         MessengerExtensions.getContext(APP_ID, 
           function success(thread_context){
-           senderID = thread_context.psid;
+           sender_id = thread_context.psid;
           },
           function error(err){
             console.log(err);
