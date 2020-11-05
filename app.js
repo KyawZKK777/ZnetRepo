@@ -172,6 +172,7 @@ app.get('/admin/orders', async function(req,res){
     let order = {};
     order = doc.data();
     order.doc_id = doc.id;
+    order.total = parseInt(doc.data().nofbooks) * parseInt(doc.data().price) ;
 
     data.push(order);
     
@@ -212,23 +213,12 @@ app.post('/admin/updateorder', function(req,res){
     phone:req.body.phone,
     email:req.body.email,
     deliveryadd:req.body.deliveryadd,
-    book:req.body.book,
     nofbooks:req.body.nofbooks,
-    coffee:req.body.coffee,
-    department:req.body.department,
-    select:req.body.select,
-    selet:req.body.selet,
-    selec:req.body.selec,
-    sele:req.body.sele,
-    drink:req.body.drink,
-    date:req.body.date,
-    or:req.body.or,
-    price:req.body.price,
-    message:req.body.message,
     status:req.body.status,
-    doc_id:req.body.doc_id,
-    ref:req.body.ref,
-    comment:req.body.comment
+    comment:req.body.comment,
+
+    
+    
   }
 
   db.collection('orders').doc(req.body.doc_id)

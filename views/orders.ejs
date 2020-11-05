@@ -13,12 +13,14 @@
   
   <table cellspacing="1" cellpadding="5" border="1">
     <tr>
-    
+    <th>Book</th>
     <th>Nofbooks</th>
+    <th>Total</th>
     <th>Name</th>
     <th>Deliveryadd</th>
     <th>Phone</th>
     <th>Email</th>
+
    
   </tr>
 
@@ -26,7 +28,9 @@
   <% data.forEach(function(order){ %>
      <tr>
       
+       <td><%= order.or %></td>
        <td><%= order.nofbooks %></td>
+       <td><%= order.total %></td>
        <td><%= order.name %></td>
        <td><%= order.deliveryadd %></td>
        <td><%= order.phone %></td>
