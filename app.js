@@ -1093,6 +1093,7 @@ const saveOrder = (arg, sender_psid) => {
   let data = arg;
   data.ref = generateRandom(6);
   data.status = "pending";
+  data.comment = "";
   db.collection('orders').add(data).then((success)=>{
     console.log('SAVED', success);
     let text = "Thank you. We have received your order."+ "\u000A";
