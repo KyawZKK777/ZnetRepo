@@ -43,6 +43,12 @@ let books = [
     id: "001",
     name: "The Life of Pi",
     price: 15000,
+  },
+
+  {
+    id: "002",
+    name: "1984",
+    price: 10000,
   }
 ]
 /*
@@ -805,7 +811,7 @@ const showFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:1984",
+                  "payload": "Or:002",
                 },               
               ],
           },{
