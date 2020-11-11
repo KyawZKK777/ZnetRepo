@@ -513,15 +513,15 @@ function handleQuickReply(sender_psid, received_message) {
   }else if(received_message.startsWith("selec:")){
     let selec = received_message.slice(6);
     userInputs[user_id].selec = selec;
-    showNonFiction(sender_psid);
+    showNonFictin(sender_psid);
   }else if(received_message.startsWith("selet:")){
     let selet = received_message.slice(6);
     userInputs[user_id].selet = selet;
-    showPolitics(sender_psid);
+    showPolitic(sender_psid);
   }else if(received_message.startsWith("sele:")){
     let sele = received_message.slice(5);
     userInputs[user_id].selet = sele;
-    showNovel(sender_psid);
+    showNove(sender_psid);
   }else{
 
       switch(received_message) {
