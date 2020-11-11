@@ -529,12 +529,14 @@ function handleQuickReply(sender_psid, received_message) {
           showMenu(sender_psid);
           break;
 
-         case "nonfiction": 
-            showFiction(sender_psid);
-          break;
+         
 
           case "fiction": 
             showFiction(sender_psid);
+          break;
+
+          case "nonfiction": 
+            showNonFiction(sender_psid);
           break;
 
 
