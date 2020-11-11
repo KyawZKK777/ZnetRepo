@@ -41,74 +41,74 @@ let userInputs = [];
 let books = [
   {
     id: "001",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "မြေစာပင်",
+    price: 3000,
   },
 
   {
     id: "002",
-    name: "1984",
-    price: 10000,
+    name: "စိတ္တဇ",
+    price: 4000,
   },
 
   {
     id: "003",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "စမ်းရေကြည်နု",
+    price: 3500,
   },
 
   {
     id: "004",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "ငါပြောချင်သမျှ ငါ့အကြောင်းi",
+    price: 2000,
   },
 
   {
     id: "005",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "စာပေလောက",
+    price: 3500,
   },
 
   {
-    id: "006",
-    name: "The Life of Pi",
-    price: 15000,
+   id: "006",
+    name: "ပုဂံမှာ ကျန်စစ်သား",
+    price: 3000,
   },
 
   {
     id: "007",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "အိပ်နေရင်ညနိုးနေရင်နေ့",
+    price: 3500,
   },
 
   {
     id: "008",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "သူလိုလူ",
+    price: 6500,
   },
 
   {
     id: "009",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "သူငယ်ချင်းလို့ပဲဆက်၍ခေါ်မည်ခိုင်",
+    price: 7000,
   },
 
   {
     id: "010",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "ဘုံဘဝကြုံတွေ့ရ ဇာတ်လမ်းမျာ",
+    price: 7000,
   },
 
   {
     id: "011",
-    name: "The Life of Pi",
-    price: 15000,
+    name: "ရန်ကုန်မြို့ပေါ်က သူပုန်",
+    price: 6000,
   },
 
   {
     id: "012",
-    name: "1984",
-    price: 10000,
+    name: "ရူးသွပ်ခြင်းကိုကုန်ကူးကြသူများ",
+    price: 2500,
   }
 ]
 
@@ -898,9 +898,9 @@ const showFiction = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Life of Pi",
-            "subtitle": "Author - Yann Martel,Price - 15000 MMK",
-            "image_url":"https://pictures.abebooks.com/isbn/9780156030205-us.jpg",                       
+            "title": "မြေစာပင်",
+            "subtitle": "Author - ကိုစိုးထိုက် (ဖဒို),Price - 3000 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575876985l/49159359._SX318_.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -909,9 +909,9 @@ const showFiction = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "1984",
-            "subtitle": "Author - George Orwell,Price - 15000 MMK",
-            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6aVP3o8CreHxGf5KaRLuWQJCoaYch53_EyA&usqp=CAU",                       
+            "title": "စိတ္တဇ",
+            "subtitle": "Author - မောင်မိုးသူ,Price - 4000 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604923746l/55868945._SY475_.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -920,9 +920,9 @@ const showFiction = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "NORMAL PEOPLE",
-            "subtitle": "Author - Sally Rooney,Price - 15000 MMK",
-            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
+            "title": "စမ်းရေကြည်နု",
+            "subtitle": "Author - လင်းခါး,Price - 3500 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1593078552l/54260715._SX318_.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -950,9 +950,9 @@ const showNonFiction = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "The Future of Humanity",
-            "subtitle": "Author - MICHIO KAKU,Price - 1200 MMK",
-            "image_url":"https://malwarwickonbooks.com/wp-content/uploads/2018/10/The-Future-of-Humanity-228x350.jpg",                       
+            "title": "ငါပြောချင်သမျှ ငါ့အကြောင်း",
+            "subtitle": "Author - ဒေါက်တာသန်းထွန်း,Price - 2000 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1464929626l/30341358._SY475_.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -961,9 +961,9 @@ const showNonFiction = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "I Know Why The Caged Bird Sings?",
-            "subtitle": "Author - Maya Angelou,Price - 14000 MMK",
-            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSCVG2tn5ter4bXqeP_xMUVR2Uvh4ur5rkzDw&usqp=CAU",                       
+            "title": "စာပေလောက",
+            "subtitle": "Author - သော်တာဆွေ,Price - 3500 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361940186l/17448379.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -972,9 +972,9 @@ const showNonFiction = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "BECOMING",
-            "subtitle": "Author - MICHELLE OBAMA,Price - 17000 MMK",
-            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVOX90o8B0r4qXK8rk2Qt_alvKWH-0PMqdXg&usqp=CAU",                       
+            "title": "ပုဂံမှာ ကျန်စစ်သား",
+            "subtitle": "Author -  တက္ကသိုလ်စိန်တင်,Price - 3000 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1362031563l/17450340.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1001,9 +1001,9 @@ const showNovel = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "The STAND",
-            "subtitle": "Author - STEVEN KING,Price - 13000 MMK",
-            "image_url":"https://i.pinimg.com/originals/f5/25/69/f525698b99e287aa9e0f67e3674c1150.jpg",                       
+            "title": "အိပ်နေရင်ညနိုးနေရင်နေ့",
+            "subtitle": "တာရာမင်းဝေ,Price - 3500 MMK",
+            "image_url":"https://www.pannsattlann.com/wp-content/uploads/2020/07/eait-nay-yin-naye-300x300.png",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1012,9 +1012,9 @@ const showNovel = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "LEVING TIME",
-            "subtitle": "Author - JODI PICOULT,Price - 10000 MMK",
-            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394487223i/18816603._UY390_SS390_.jpg",                       
+            "title": "သူလိုလူ",
+            "subtitle": "Author - ဂျာနယ်ကျော်မမလေး,Price - 6500 MMK",
+            "image_url":"https://www.pannsattlann.com/wp-content/uploads/2019/09/Thu-Lo-Lu-600x600.png",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1023,9 +1023,9 @@ const showNovel = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "THE HOBBIT",
-            "subtitle": "Author - J.R.R TOLKIEN,Price - 17000 MMK",
-            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3dq665njj8WIdfBgJ8HUGcSpMjv9TSFZWVQ&usqp=CAU",                       
+            "title": "သူငယ်ချင်းလို့ပဲဆက်၍ခေါ်မည်ခိုင်",
+            "subtitle": "Author - တက္ကသိုလ်ဘုန်းနိုင်,Price - 7000 MMK",
+            "image_url":"https://www.pannsattlann.com/wp-content/uploads/2019/08/Khaing-600x600.png",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1052,9 +1052,9 @@ const showPolitics = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "THE AUDACITY OF HOPE",
-            "subtitle": "Author - BARACK OBAMA,Price - 20000 MMK",
-            "image_url":"https://i5.walmartimages.com/asr/d3db3aee-025f-48b8-bfcb-5b9b27949395_1.6a61ee5efea5205d012327ecd4c223a3.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",                       
+            "title": "ဘုံဘဝကြုံတွေ့ရ ဇာတ်လမ်းမျာ",
+            "subtitle": "Author - မှူးသမိန်,Price - 7000 MMK",
+            "image_url":"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361847391l/17436911.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1063,9 +1063,9 @@ const showPolitics = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "THE MIRAGE OF POWER",
-            "subtitle": "Author - DR.MUBASHIR HASAN,Price - 12000 MMK",
-            "image_url":"https://fivebooks.com/app/uploads/2010/09/Mirage.jpg",                       
+            "title": "ရန်ကုန်မြို့ပေါ်က သူပုန်",
+            "subtitle": "Author - အောင်အေး(ရန်ကုန်တက္ကသိုလ်),Price - 6000 MMK",
+            "image_url":"https://www.pannsattlann.com/wp-content/uploads/2020/05/Yangon-600x600.png",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1074,9 +1074,9 @@ const showPolitics = (sender_psid) => {
                 },               
               ],
           },{
-            "title": "HERE ARE YOU ARE GODS",
-            "subtitle": "Author - CHRISTOPHER J. H. WRIGHT,Price - 15000 MMK",
-            "image_url":"https://www.ivpress.com/Media/Default/_Profiles/7da17a8b/53f3c03/5335.jpg?v=637273899941809695",                       
+            "title": "ရူးသွပ်ခြင်းကိုကုန်ကူးကြသူများ",
+            "subtitle": "Author - ခွန်လှိုင်,Price - 2500 MMK",
+            "image_url":"https://www.pannsattlann.com/wp-content/uploads/2019/08/Merchants-of-Madness-300x300.png",                       
             "buttons": [
                 {
                   "type": "postback",
