@@ -528,15 +528,21 @@ function handleQuickReply(sender_psid, received_message) {
         case "start": 
           showMenu(sender_psid);
           break;
-         case "fiction": 
+
+         case "nonfiction": 
             showFiction(sender_psid);
           break;
 
-        case "Politics": 
+          case "fiction": 
+            showFiction(sender_psid);
+          break;
+
+
+        case "politics": 
             showPolitics(sender_psid);
           break;
 
-        case "Novel": 
+        case "novel": 
             showNovel(sender_psid);
           break;
         
