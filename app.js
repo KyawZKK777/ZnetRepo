@@ -535,7 +535,7 @@ function handleQuickReply(sender_psid, received_message) {
             showFiction(sender_psid);
           break;
 
-          case "nonfiction": 
+          case "non-fiction": 
             showNonFiction(sender_psid);
           break;
 
