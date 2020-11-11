@@ -49,6 +49,66 @@ let books = [
     id: "002",
     name: "1984",
     price: 10000,
+  },
+
+  {
+    id: "003",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "004",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "005",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "006",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "007",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "008",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "009",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "010",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "011",
+    name: "The Life of Pi",
+    price: 15000,
+  },
+
+  {
+    id: "012",
+    name: "1984",
+    price: 10000,
   }
 ]
 
@@ -470,7 +530,17 @@ function handleQuickReply(sender_psid, received_message) {
           break;
          case "fiction": 
             showFiction(sender_psid);
-          break;                
+          break;
+
+        case "Politics": 
+            showPolitics(sender_psid);
+          break;
+
+        case "Novel": 
+            showNovel(sender_psid);
+          break;
+        
+
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -850,8 +920,8 @@ const showFiction = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Learn More...",
-                  "payload": "Or:NORMAL",
+                  "title": "Order Now",
+                  "payload": "Or:003",
                 },               
               ],
           }
@@ -881,7 +951,7 @@ const showNonFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:Future",
+                  "payload": "Or:004",
                 },               
               ],
           },{
@@ -892,7 +962,7 @@ const showNonFiction = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:Bird",
+                  "payload": "Or:005",
                 },               
               ],
           },{
@@ -902,8 +972,8 @@ const showNonFiction = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Learn More...",
-                  "payload": "Or:BECOMING",
+                  "title": "Order Now",
+                  "payload": "Or:006",
                 },               
               ],
           }
@@ -932,7 +1002,7 @@ const showNovel = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:STAND",
+                  "payload": "Or:007",
                 },               
               ],
           },{
@@ -943,7 +1013,7 @@ const showNovel = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:TIME",
+                  "payload": "Or:008",
                 },               
               ],
           },{
@@ -954,7 +1024,7 @@ const showNovel = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:HOBBIT",
+                  "payload": "Or:009",
                 },               
               ],
           }
@@ -983,7 +1053,7 @@ const showPolitics = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:HOPE",
+                  "payload": "Or:010",
                 },               
               ],
           },{
@@ -994,7 +1064,7 @@ const showPolitics = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:POWER"
+                  "payload": "Or:011"
                 },               
               ],
           },{
@@ -1005,7 +1075,7 @@ const showPolitics = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Order Now",
-                  "payload": "Or:GODS",
+                  "payload": "Or:012",
                 },               
               ],
           }
