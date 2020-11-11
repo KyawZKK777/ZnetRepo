@@ -55,14 +55,32 @@ let books = [
 let coffees = [
   {
     id: "101",
-    name: "Cuppa",
-    price: 1000,
+    name: "Cappuccino",
+    price: 2000,
   },
 
   {
     id: "102",
     name: "Espresso",
-    price: 10000,
+    price: 1800,
+  },
+
+  {
+    id: "103",
+    name: "Latte",
+    price: 2200,
+  },
+
+  {
+    id: "104",
+    name: "Americano",
+    price: 1800,
+  },
+
+  {
+    id: "105",
+    name: "Mocha",
+    price: 2200,
   }
 ]
 /*
@@ -607,11 +625,8 @@ const handlePostback = (sender_psid, received_postback) => {
    if(payload.startsWith("Or:")){
     let or_name = payload.slice(3);
     console.log('SELECTED OR IS: ', or_name);
-    
     userInputs[user_id].price = getBook(or_name).price;
     userInputs[user_id].or = getBook(or_name).name;
-    userInputs[user_id].price = getCoffee(or_name).price;
-    userInputs[user_id].or = getCoffee(or_name).name;
     current_question = 'q1';
     botQuestions(current_question, sender_psid);
   }
@@ -1013,8 +1028,8 @@ const showCoffee = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Cuppacino",
-            "subtitle": "Price - 15000 MMK",
+            "title": "Cappuccino",
+            "subtitle": "Price - 2000 MMK",
             "image_url":"https://cdn.images.express.co.uk/img/dynamic/1/590x/Coffee-617852.jpg",                       
             "buttons": [
                 {
@@ -1025,13 +1040,46 @@ const showCoffee = (sender_psid) => {
               ],
           },{
             "title": "Espresso",
-            "subtitle": "Price - 15000 MMK",
-            "image_url":"https://pictures.abebooks.com/isbn/9780156030205-us.jpg",                       
+            "subtitle": "Price - 1800 MMK",
+            "image_url":"https://i2.wp.com/curlycoffee.nl/wp-content/uploads/2014/02/espresso-shot.jpg?resize=800%2C532",                       
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Order Now",
                   "payload": "Or:102",
+                },               
+              ],
+            },{
+            "title": "Latte",
+            "subtitle": "Price - 2200 MMK",
+            "image_url":"https://www.thecoffeepod.co.uk/contents/media/latte%20art.smljpg.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:103",
+                },               
+              ],
+            }, {
+            "title": "Americano",
+            "subtitle": "Price - 1800 MMK",
+            "image_url":"https://lh3.googleusercontent.com/proxy/S7kdSda2bQA9sB7vBcbP5wNEuchObmLOyWTvG-dMZjnzLljcALlWsxYqhGTIOqrdYsxeEXw1f04AQv4SgaIWDIPFrgkHQy9RT52jNhIe9OTfSWO3uRKRXUE2a80",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:104",
+                },               
+              ],
+            },{
+            "title": "Mocha",
+            "subtitle": "Price - 2200 MMK",
+            "image_url":"https://lifemadesweeter.com/wp-content/uploads/Peppermint-Latte-Photo-Recipe-Picture-3.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:105",
                 },               
               ],
           }
