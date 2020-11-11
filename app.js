@@ -51,6 +51,20 @@ let books = [
     price: 10000,
   }
 ]
+
+let coffees = [
+  {
+    id: "101",
+    name: "Cuppa",
+    price: 1000,
+  },
+
+  {
+    id: "102",
+    name: "Espresso",
+    price: 10000,
+  }
+]
 /*
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -172,7 +186,7 @@ app.get('/admin/orders', async function(req,res){
     let order = {};
     order = doc.data();
     order.doc_id = doc.id;
-    order.total = parseInt(doc.data().nofbooks) * parseInt(doc.data().price) ;
+    order.total = parseInt(doc.data().qty) * parseInt(doc.data().price) ;
 
     data.push(order);
     
@@ -213,7 +227,7 @@ app.post('/admin/updateorder', function(req,res){
     phone:req.body.phone,
     email:req.body.email,
     deliveryadd:req.body.deliveryadd,
-    nofbooks:req.body.nofbooks,
+    qty:req.body.qty,
     status:req.body.status,
     comment:req.body.comment,
 
@@ -472,7 +486,7 @@ const handleMessage = (sender_psid, received_message) => {
      handleAttachments(sender_psid, received_message.attachments);
   }else if(current_question == 'q1'){
      console.log('TOTAL NUMBER OF BOOKS ENTERED',received_message.text);
-     userInputs[user_id].nofbooks = received_message.text;
+     userInputs[user_id].qty = received_message.text;
      current_question = 'q2';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q2'){
@@ -608,7 +622,10 @@ const handlePostback = (sender_psid, received_postback) => {
       switch(payload) {
       case "books-menu":
           bookCategory(sender_psid);
-        break;        
+        break;   
+    case "coffee-menu":
+          showCoffee(sender_psid);
+        break;
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -724,6 +741,10 @@ const botWelcome = (sender_psid) => {
 }
 
 
+const getBook = (id) =>  books.filter((book)=> id == book.id )[0];
+const getCoffee = (id) =>  coffees.filter((coffee)=> id == coffee.id )[0];
+
+
 const showMenu = (sender_psid) => {
     let response = {
       "attachment": {
@@ -826,7 +847,7 @@ const showFiction = (sender_psid) => {
   callSend(sender_psid, response);
 
 }
-const getBook = (id) =>  books.filter((book)=> id == book.id )[0];
+
 
 const showNonFiction = (sender_psid) => {
     let response = {
@@ -981,6 +1002,47 @@ const showPolitics = (sender_psid) => {
 
 }
 
+
+const showCoffee = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Cuppacino",
+            "subtitle": "Price - 15000 MMK",
+            "image_url":"https://cdn.images.express.co.uk/img/dynamic/1/590x/Coffee-617852.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:101",
+                },               
+              ],
+          },{
+            "title": "Espresso",
+            "subtitle": "Price - 15000 MMK",
+            "image_url":"https://pictures.abebooks.com/isbn/9780156030205-us.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Order Now",
+                  "payload": "Or:102",
+                },               
+              ],
+          }
+
+          ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
+
 const bookCategory = (sender_psid) => {
 
   let response = {
@@ -1058,12 +1120,12 @@ const confirmOrder = (sender_psid) => {
  
   summery += "deliveryadd:" + userInputs[user_id].deliveryadd + "\u000A";
   summery += "name:" + userInputs[user_id].name + "\u000A";
-  summery += "nofbooks:" + userInputs[user_id].nofbooks + "\u000A";
+  summery += "qty:" + userInputs[user_id].qty + "\u000A";
   summery += "phone:" + userInputs[user_id].phone + "\u000A";
   summery += "email:" + userInputs[user_id].email + "\u000A";
-  summery += "quantity:"+userInputs[user_id].nofbooks + "\u000A";
+  summery += "quantity:"+userInputs[user_id].qty + "\u000A";
   
-  let total = parseInt(userInputs[user_id].nofbooks) * userInputs[user_id].price;
+  let total = parseInt(userInputs[user_id].qty) * userInputs[user_id].price;
   summery += "totalprice:" + total + "\u000A";
 
 
