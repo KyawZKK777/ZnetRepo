@@ -22,6 +22,8 @@ const uuidv4 = uuid();
 
 app.use(body_parser.json());
 app.use(body_parser.urlencoded());
+app.set('trust proxy', 1);
+app.use(session({secret: 'effystonem'}));
 
 const bot_questions = {
   "q1": "how many book? (number)",
@@ -238,6 +240,44 @@ app.use('/uploads', express.static('uploads'));
 app.get('/',function(req,res){    
     res.send('your app is up and running');
 });
+
+app.get('/login',function(req,res){    
+    sess = req.session;
+
+    if(sess.login){
+       res.send('You are already login. <a href="logout">logout</a>');
+    }else{
+      res.render('login.ejs');
+    } 
+    
+});
+
+
+app.get('/logout',function(req,res){ 
+    //sess = req.session;   
+    req.session.destroy(null);  
+    res.redirect('login');
+});
+
+app.post('/login',function(req,res){    
+    sess = req.session;
+
+    let username = req.body.username;
+    let password = req.body.password;
+
+    if(username == 'admin' && password == 'test123'){
+      sess.username = 'admin';
+      sess.login = true;
+      res.send('login successful');
+    }else{
+      res.send('login failed');
+    }   
+});
+
+app.get('/publicpage',function(req,res){    
+    res.render('publicpage.ejs');
+});
+
 
 app.get('/test',function(req,res){    
     res.render('test.ejs');
