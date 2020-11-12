@@ -18,10 +18,13 @@ const
   app = express(); 
 
 const uuidv4 = uuid();
+const session = require('express-session');
 
+let sess;
 
 app.use(body_parser.json());
 app.use(body_parser.urlencoded());
+
 app.set('trust proxy', 1);
 app.use(session({secret: 'effystonem'}));
 
