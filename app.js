@@ -268,10 +268,10 @@ app.post('/login',function(req,res){
     let username = req.body.username;
     let password = req.body.password;
 
-    if(username == 'admin' && password == 'test123'){
-      sess.username = 'admin';
+    if(username == process.env.ADMIN_UN && password == process.env.ADMIN_PW){
+      sess.username = process.env.ADMIN_UN;
       sess.login = true;
-      res.send('login successful');
+      res.redirect('/admin/orders');
     }else{
       res.send('login failed');
     }   
@@ -293,9 +293,12 @@ app.post('/test',function(req,res){
 });
 
 app.get('/admin/orders', async function(req,res){
- 
-  const ordersRef = db.collection('orders');
-  const snapshot = await ordersRef.get();
+
+  sess = req.session;
+    console.log('SESS:', sess); 
+    if(sess.login){
+      const ordersRef = db.collection('orders');
+      const snapshot = await ordersRef.get();
 
   if (snapshot.empty) {
     res.send('no data');
@@ -316,6 +319,14 @@ app.get('/admin/orders', async function(req,res){
   console.log('DATA:', data);
 
   res.render('orders.ejs', {data:data});
+       
+
+
+    }else{
+      res.send('you are not authorized to view this page');
+    }   
+ 
+  
   
 });
 
