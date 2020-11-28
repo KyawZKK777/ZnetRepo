@@ -267,8 +267,7 @@ app.post('/login',function(req,res){
     sess = req.session;
 
     let username = req.body.username;
-    let password = req.body.
-    ;
+    let password = req.body.password;
 
     if(username == process.env.ADMIN_UN && password == process.env.ADMIN_PW){
       sess.username = process.env.ADMIN_UN;
@@ -801,7 +800,6 @@ const handlePostback = (sender_psid, received_postback) => {
     case "coffee-menu":
           showCoffee(sender_psid);
         break;
-       
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -1256,9 +1254,6 @@ const showCoffee = (sender_psid) => {
 
 }
 
-
-
-
 const bookCategory = (sender_psid) => {
 
   let response = {
@@ -1379,7 +1374,7 @@ const saveOrder = (arg, sender_psid) => {
     console.log('SAVED', success);
     let text = "Thank you. We have received your order."+ "\u000A";
     text += " We wil call you to confirm soon"+ "\u000A";
-    text += "Your booking number is:" + data.ref;
+    text += "Your booking reference number is:" + data.ref;
     let response = {"text": text};
     callSend(sender_psid, response);
   }).catch((err)=>{
