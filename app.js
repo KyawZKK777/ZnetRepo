@@ -801,9 +801,7 @@ const handlePostback = (sender_psid, received_postback) => {
     case "coffee-menu":
           showCoffee(sender_psid);
         break;
-        case "our-story":
-          showStory(sender_psid);
-        break;
+       
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -1258,32 +1256,7 @@ const showCoffee = (sender_psid) => {
 
 }
 
-const story = (sender_psid) => {
-    let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Our Story",
-            "subtitle": " Our vision is to always be the leading company of high quality coffee (specialty) in Myanmar, offering value to our people, our customers, the community as well as to shareholders.",
-            "image_url":" ",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "",
-                  "payload": "Or:101",
-                },               
-              ],
-          }
 
-          ]
-        }
-      }
-    }
-
-  
-  callSend(sender_psid, response);
 
 }
 
