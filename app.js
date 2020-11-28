@@ -1380,7 +1380,7 @@ const saveOrder = (arg, sender_psid) => {
     console.log('SAVED', success);
     let text = "Thank you. We have received your order."+ "\u000A";
     text += " We wil call you to confirm soon"+ "\u000A";
-    text += "Your booking reference number is:" + data.ref;
+    text += "Your order number is:" + data.ref;
     let response = {"text": text};
     callSend(sender_psid, response);
   }).catch((err)=>{
