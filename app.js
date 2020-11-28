@@ -801,7 +801,7 @@ const handlePostback = (sender_psid, received_postback) => {
     case "coffee-menu":
           showCoffee(sender_psid);
         break;
-        case "our-story-menu":
+        case "our-story":
           showStory(sender_psid);
         break;
       case "yes":
