@@ -267,7 +267,8 @@ app.post('/login',function(req,res){
     sess = req.session;
 
     let username = req.body.username;
-    let password = req.body.password;
+    let password = req.body.
+    ;
 
     if(username == process.env.ADMIN_UN && password == process.env.ADMIN_PW){
       sess.username = process.env.ADMIN_UN;
@@ -800,6 +801,9 @@ const handlePostback = (sender_psid, received_postback) => {
     case "coffee-menu":
           showCoffee(sender_psid);
         break;
+        case "our-story-menu":
+          showStory(sender_psid);
+        break;
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -1240,6 +1244,35 @@ const showCoffee = (sender_psid) => {
                   "type": "postback",
                   "title": "Order Now",
                   "payload": "Or:105",
+                },               
+              ],
+          }
+
+          ]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+
+}
+
+const story = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Our Story",
+            "subtitle": " Our vision is to always be the leading company of high quality coffee (specialty) in Myanmar, offering value to our people, our customers, the community as well as to shareholders.",
+            "image_url":" ",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "",
+                  "payload": "Or:101",
                 },               
               ],
           }
