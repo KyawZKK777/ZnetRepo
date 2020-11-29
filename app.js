@@ -894,7 +894,7 @@ start Znet
 **************/
 const botWelcome = (sender_psid) => {
   console.log("insidebotwelcome");
-   let response1 = {"text": "Welcome to Welcome to ZNET Coffee and Book shop"};
+   let response1 = {"text": "Welcome to ZNET Coffee and Book shop"};
    let response2 = {"text": "Perfect time for a cup of coffee don't you think? ☕" };
    let response3= {"text": "How can we help you today? ",
 
@@ -1374,7 +1374,7 @@ const saveOrder = (arg, sender_psid) => {
     console.log('SAVED', success);
     let text = "Thank you. We have received your order."+ "\u000A";
     text += " We wil call you to confirm soon"+ "\u000A";
-    text += "Your booking reference number is:" + data.ref;
+    text += "Your order-reference number is:" + data.ref;
     let response = {"text": text};
     callSend(sender_psid, response);
   }).catch((err)=>{
