@@ -800,10 +800,7 @@ const handlePostback = (sender_psid, received_postback) => {
     case "coffee-menu":
           showCoffee(sender_psid);
         break;
-    case "our-story":
-          showLearn(sender_psid);
-        break;
-      case "yes":
+   case "yes":
           showButtonReplyYes(sender_psid);
         break;
       case "no":
@@ -1385,22 +1382,7 @@ const saveOrder = (arg, sender_psid) => {
   });
 }
 
-const Learn = (arg, sender_psid) => {
-  let data = arg;
-  data.ref = generateRandom(6);
-  data.status = "pending";
-  data.comment = "";
-  db.collection('orders').add(data).then((success)=>{
-    console.log('SAVED', success);
-    let text = "Thank you. We have received your order."+ "\u000A";
-    text += " We wil call you to confirm soon"+ "\u000A";
-    text += "Our vision is to always be the leading company of high quality coffee (specialty) in Myanmar, offering value to our people, our customers, the community as well as to shareholders.";
-    let response = {"text": text};
-    callSend(sender_psid, response);
-  }).catch((err)=>{
-     console.log('Error', err);
-  });
-}
+
 
 const showOrder = async(sender_psid, order_ref) => {
 
