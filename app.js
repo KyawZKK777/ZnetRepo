@@ -1545,31 +1545,6 @@ const thankyouReply =(sender_psid, name, img_url) => {
   callSend(sender_psid, response);
 }
 
-function testDelete(sender_psid){
-  let response;
-  response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Delete Button Test",                       
-            "buttons": [              
-              {
-                "type": "web_url",
-                "title": "enter",
-                "url":"https://fbstarter.herokuapp.com/test/",
-                 "webview_height_ratio": "full",
-                "messenger_extensions": true,          
-              },
-              
-            ],
-          }]
-        }
-      }
-    }
-  callSendAPI(sender_psid, response);
-}
 
 const defaultReply = (sender_psid) => {
   let response1 = {"text": "To test text reply, type 'text'"};
