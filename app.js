@@ -800,7 +800,7 @@ const handlePostback = (sender_psid, received_postback) => {
     case "coffee-menu":
           showCoffee(sender_psid);
         break;
-   case "yes":
+    case "yes":
           showButtonReplyYes(sender_psid);
         break;
       case "no":
@@ -1545,6 +1545,31 @@ const thankyouReply =(sender_psid, name, img_url) => {
   callSend(sender_psid, response);
 }
 
+function testDelete(sender_psid){
+  let response;
+  response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Delete Button Test",                       
+            "buttons": [              
+              {
+                "type": "web_url",
+                "title": "enter",
+                "url":"https://fbstarter.herokuapp.com/test/",
+                 "webview_height_ratio": "full",
+                "messenger_extensions": true,          
+              },
+              
+            ],
+          }]
+        }
+      }
+    }
+  callSendAPI(sender_psid, response);
+}
 
 const defaultReply = (sender_psid) => {
   let response1 = {"text": "To test text reply, type 'text'"};
@@ -1709,7 +1734,27 @@ const setupPersistentMenu = (res) => {
 FUNCTION TO REMOVE MENU
 ************************/
 
-c
+const removePersistentMenu = (res) => {
+  var messageData = {
+          "fields": [
+             "persistent_menu" ,
+             "get_started"                 
+          ]               
+  };  
+  request({
+      url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+      form: messageData
+  },
+  function (error, response, body) {
+      if (!error && response.statusCode == 200) {          
+          res.send(body);
+      } else {           
+          res.send(body);
+      }
+  });
+} 
 
 
 /***********************************
