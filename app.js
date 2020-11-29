@@ -29,7 +29,7 @@ app.set('trust proxy', 1);
 app.use(session({secret: 'effystonem'}));
 
 const bot_questions = {
-  "q1": "how many book? (number)",
+  "q1": "how many would you like? (number)",
   "q2": "please enter full name",
   "q3": "what is delivery address",
   "q4": "Please share your phone number",
