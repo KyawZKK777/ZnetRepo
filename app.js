@@ -951,16 +951,7 @@ const showMenu = (sender_psid) => {
                   "payload": "coffee-menu",
                 },               
               ],
-          },{
-            "title": "Our Story",
-            "subtitle": "Read more about our ZNet coffee & book shop and our exceptional.",
-            "image_url":"https://i.pinimg.com/736x/bc/10/7e/bc107e33de2c7704e4daac992ee5ca5f.jpgg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Learn More...",
-                  "payload": "our-story",
-                },               
+          },             
               ],
           }
 
