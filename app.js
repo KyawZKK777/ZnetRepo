@@ -1709,27 +1709,7 @@ const setupPersistentMenu = (res) => {
 FUNCTION TO REMOVE MENU
 ************************/
 
-const removePersistentMenu = (res) => {
-  var messageData = {
-          "fields": [
-             "persistent_menu" ,
-             "get_started"                 
-          ]               
-  };  
-  request({
-      url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+ PAGE_ACCESS_TOKEN,
-      method: 'DELETE',
-      headers: {'Content-Type': 'application/json'},
-      form: messageData
-  },
-  function (error, response, body) {
-      if (!error && response.statusCode == 200) {          
-          res.send(body);
-      } else {           
-          res.send(body);
-      }
-  });
-} 
+c
 
 
 /***********************************
